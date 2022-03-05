@@ -1,0 +1,1580 @@
+\documentclass[a4paper,norsk,utf8]{report}
+%\RequirePackage{index}
+%\proofmodetrue
+%\newindex{xauthor}{adx}{and}{People}
+%\newindex{xcmds}{cdx}{cnd}{Index of Commands and Concepts}
+\usepackage{biblatex}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{makeidx}
+\usepackage{courier}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{chicago}
+\bibliographystyle{chicago}
+\bibliography{thesis}
+\inputencoding{utf8}
+\usepackage{xcolor}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+backgroundcolor=\color{backgroundColour},   
+commentstyle=\color{mGreen},
+keywordstyle=\color{magenta},
+numberstyle=\tiny\color{mGray},
+stringstyle=\color{mPurple},
+basicstyle=\footnotesize,
+breakatwhitespace=false,         
+breaklines=true,                 
+captionpos=b,                    
+keepspaces=true,                 
+numbers=left,                    
+numbersep=5pt,                  
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,                  
+tabsize=2,
+language=C
+}
+
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt,frame=bottomline}
+\lstset{
+    language=C, % choose the language of the code
+    frame=single, % adds a frame around the code
+    tabsize=4, % sets default tabsize to 2 spaces
+    rulesepcolor=\color{grey}
+}
+\author{Ole Kr. Aamot}
+\title{
+ Public Internet Radio Client for Accessing Free Audio Maps in Countries with Free Speech\\\\
+ \begin{large}\\
+ \\
+ \\
+ \\
+   GNOME Internet Radio Locator (gnome-internet-radio-locator)\\
+   GNOME Radio (gnome-radio)\\
+ \\
+   \url{http://www.gnomeradio.org/~ole/thesis.pdf}
+  \end{large}
+}
+\subtitle{\noindent\begin{small}AAMOT\,\ OLE\ 1978\-02\-20\ OSLO\ METROPOLITAN\ UNIVERSITY\ 2020\-06\-30\ BSc EE\end{small}\\
+\noindent\begin{footnotesize}Public Internet Radio Client for Accessing Free Audio Maps in Countries with Free Speech\end{footnotesize}\\
+\noindent\begin{footnotesize}GNOME Internet Radio Locator (gnome-internet-radio-locator)\end{footnotesize}\\
+\noindent\begin{footnotesize}GNOME Radio (gnome-radio)\end{footnotesize}}
+\noindent\begin{footnotesize}http://www.gnomeradio.org/\end{footnotesize}}
+\makeindex
+\begin{document}
+\maketitle
+\begin{center}
+\includegraphics[width=1.0\hsize]{thesis.png}
+\end{center}
+% \bibliography{research}
+\newpage
+\section*{Introduksjon}
+
+\noindent Denne Bachelor-oppgaven innen emnet medisinsk teknologi er
+dataprogrammet
+gnome-internet-radio-locator\index{gnome-internet-radio-locator}
+utviklet i løpet av 18 år for datamaskinoperativsystemet GNU/Linux og
+skrivebordet GNOME som har blitt utviklet siden juli 1997 og
+kontinuerlig forbedret i løpet av 22 år.
+\\
+\\
+Min hypotese var at mennesker holder seg stabile ved å lytte til
+radiosendinger på en datamaskin fordi mennesker liker å høre til
+musikk på radio på datamaskin og stabile mennesker på radio.
+\\
+\\
+\noindent Oppgaven er et ingeniørarbeid som tok 18 år å fullføre og er dedikert
+til Oda (musikkterapeut og musiker i Tøyen Botanical Crush) og mine to foreldre Gunhild (sykepleier) og
+Helge (ingeniør).
+\\
+\\
+Programmet er implementert for GNOME i programmeringspråket ANSI C og
+er tilgjengelig for Debian GNU/Linux, Fedora Linux, Ubuntu Linux og
+MacPorts.  Programmet kan lastes ned fra
+\url{http://www.gnomeradio.org/}\\
+\noindent Du kan følge prosjektet på
+\url{https://wiki.gnome.org/Apps/Radio} og
+\url{https://gitlab.gnome.org/ole/gnome-radio}
+\\
+\\
+Takk for velvilje fra studenter ved entreprenøruniversitetet Massachusetts Institute of
+Technology i Cambridge, MA som har utdannet utallige entreprenører i ingeniørvitenskap, 
+Universitetet i Oslo og Høgskolen i Oslo og Akershus og
+venner, særlig du som hjalp meg og oppmuntret meg til å fortsette
+utdannelsen etter en arbeidsperiode i 9 år for Domeneshop AS fra
+mandag til fredag kl. 9 - 17, og pasienter ved Lovisenberg Diakonale
+Sykehus som deltok i spørreundersøkelsen.  Takk til Graham Morrison i
+spalten FOSSPicks for britisk omtale av GNOME Internet Radio Locator i Linux
+Magazine 222 i mai 2019, Marius Nestor for omtale på Softpedia, Øyvind Sæther
+for anmeldelse på linuxreviews.org og Peter Norvig for invitasjon til Google i Mountain View, California, U.S.A.
+\\
+\\
+\noindent Takk også til Ranveig, Anja og Veena, Asgeir, Daniel, Kristian,
+Arnfinn, Kent, Ståle, Dag og Jan som var svært tålmodige
+arbeidskolleger i Oslo i 9 år og takk til mine gode venner Tarjei og Håkon Tjønn, John Grande, Ami Niemela, Saga, Mio og Jan Ole Kjellesvig, Hans Petter Jansson, Daniel Mikkelsen, Lars Bungum, Karl-Erik Olausen, Geir Kaaresen,
+Oskar Nakken, Elnaz Asgari, Petter Reinholdtsen, Vetle Berg Abrahamsen, Janan Anes, Patrick Edvard Antonsen, og Hans Petter Solli, Sigrid Sandkjær, og Oda Bjørke Dypvik.
+\\
+\\
+Dataprogrammet startet med frie radiosendinger på IMCbra med Elin og
+Ellinor sommeren 2002 under protestene mot Verdensbankmøtet i Oslo i
+2002 og mennesker har fortsatt å kopiere og installere dataprogrammet
+til frie datamaskiner over hele verden via Internett via frivillig
+installasjon og samarbeid fra 2014 etter mitt besøk i New York City,
+Cambridge og Boston i Massachusetts, U.S.A. i juni 2014 og jeg startet
+igjen utviklingen 1. november 2014 og videreutviklingen for GNOME Maps
+og GStreamer etter mitt besøk på UC Berkeley, i Palo Alto og hos Google
+i Mountain View i California i august og september 2015 og endte med
+konklusjonen om at radio er stabiliserende og sosialiserende å lytte
+til i GNOME Internet Radio Locator for mennesker som var i karantene
+under Korona-pandemien i verden mellom 12. mars 2020 og 15. juni 2020.
+\\
+\\
+\noindent Til slutt stor takk til professor i psykiatri Astrid Nøklebye Heiberg
+ved Universitetet i Oslo, førsteamanuensis i arkivvitenskap Thomas
+Sødring ved Oslo Metropolitan University og programleder Fredrik
+Solvang i NRK som trodde på prosjektet mitt, samt overingeniør Jon Sverre
+Dischington Hanssen, ingeniør Vetle Berg Abrahamsen og medstudent 
+Adrian Szabo Aabech for 9 Volt FM-senderne som Aabech og Abrahamsen bygget på
+ingeniørhøgskolen høsten 2017 og som fortsatt
+sender radio i 30 meter på FM 92.1 MHz.
+\\
+\\
+Med et sterkt ønske om fred og forståelse i verden gjennom radio og utvikling.
+\\
+\\
+\noindent Ole Kr. Aamot (BS EE), Oslo, 1. juni 2020
+% \include{forord.2019}
+\newpage
+Submitted in coherence with Norwegian Education Law
+
+This dissertation fullfills the requirements of the Bachelor of Science
+degree in Electrical Engineering at Oslo Metropolitan University, in
+coordination with the status of the Bachelor of Science program at
+University of Oslo, Faculty of Mathematics and Natural Sciences, Norway.
+
+Typeset in \LaTeX{}.
+\newpage
+\section*{Forord}
+Opphavet til offentlig radio ble første gang uttrykt og forklart av
+Edwin Howard Armstrong i kjelleren i Philosophy Hall ved Columbia
+University i New York City.  Justin Dove (PhD) ved Massachusetts
+Institute of Technology er en av de som anbefalte meg å besøke
+Columbia University i New York City da jeg besøkte Cambridge, MA i
+juni 2014.  Jeg besøkte senere University of Berkeley California i
+august 2015 hvor jeg møtte Greg Thomas (PhD) som studerte ved Columbia
+University og besøkte Googleplex, Menlo Park, Hewlett Packard Garage og
+Stanford University.
+
+Denne oppgaven er derfor inspirert av Justin Dove (PhD) og Greg Thomas
+(PhD), mine to amerikanske venner fra østkysten og vestkysten av U.S.A.
+og Peter Norvig (Director of Research, Google, Inc.) som jeg møtte i
+Mountain View i august 2015.
+
+U.S.A. går gjennom en tung tid når denne oppgaven skrives og radio kan kanskje
+hjelpe litt med å stabilisere det amerikanske samfunnet.
+
+Radio har reddet verden tidligere.  Radioreportere som amerikaneren
+Edward R. Murrow fra London under blitz-bombingen av London,
+nordmannen Toralv Øksnevad, ``stemmen fra London', ankermann i BBCs
+sendinger fra Bush House i London på norsk mellom januar 1941 og mai
+1945 under Nazi-Tysklands okkupasjon av Norge mellom 9. april 1940 og
+8. mai 1945, Gunnar Nygaards norske sendinger fra USA fra september
+1940, og rapportene til amerikaneren George Putnam på amerikanske skip
+på vei mot Normandy og D-dagen 6. juni 1944, den hemmelige, allierte
+invasjonen av Europa i Frankrike holdt oss informert.
+
+Under 2. verdenskrig og senere har radio tjent offentligheten ved å
+skape en offentlig mening og adressert problemer som krever
+offentlighetens lys.
+
+Radio som medium har hatt betydning for å informere mennesker om protester,
+konflikter mellom land og internasjonale kampanjer for å slippe fri
+fengslede menneskerettighetsforkjempere og styrte diktatorer i land
+uten reell ytringsfrihet.
+
+Menneskerettighetsorganisasjonen Amnesty International har i flere
+land sendt ``distress signal''-kampanjer på FM-båndet for å
+opplyse allmennheten og frigi mennesker som sitter i fengsel uten lov
+og dom og uten tilgang til advokat.
+
+I enkelte land driver myndighetene i diktaturer med såkalt ``jamming''
+av radiosignaler på FM-båndet for å hindre mennesker fra å lytte til
+frie radiosendinger.  Internett-radio er ikke sårbart for ``jamming''
+av signalene.
+
+Radio som teknologi har utvidet horisonten til mange mennesker siden
+den irsk-italienske oppfinneren Guglielmo Marconi kom til U.S.A. i 1899
+for å vise hvordan den trådløse telegrafen kunne sende Morse-koder
+uten kabler.
+
+Internett ble oppfunnet av ARPA i 1969 og utbredelsen har vært en
+viktig faktor i demokratibevegelser i hele verden siden World Wide Web
+(WWW) ble oppfunnet i 1989 av Tim Berners-Lee og Cascading Style
+Sheets (CSS) ble foreslått av nordmannen Håkon Wium Lie 10. oktober
+1994 ved CERN i Sveits og utviklet som Internett-standardene HTTP,
+HTML og CSS.
+
+Senere ble Internett-radio oppfunnet i forbindelse med arbeid med gode
+komprimeringsalgoritmer for lyd som MP3, Advanced Audio Codec (AAC), Ogg
+Vorbis og FLAC.
+
+Internett-radio gjorde det mulig å kringkaste lyd med høy lydkvalitet.
+
+Denne Bachelor-oppgaven beskriver arbeidet med å kartlegge frie
+radiostasjoner som kringkaster i verden og programmere et grafisk kart
+basert på det grafiske grensesnittet GTK+ og lydstrøm via HTTP over et
+TCP/IP datanettverk mellom minst to datamaskiner som konverterer
+lydbølger til digitale bits, og digitale bits til lydbølger.
+
+Denne Bachelor-oppgaven representerer 18 år med arbeid for å kartlegge
+frie radiostasjoner og 3 år med programmeringsarbeid for å presentere
+frie radiostasjoner på et grafisk kart presentert på en datamaskin med
+det grafiske brukergrensesnittet GTK+/GNOME og kontinuerlig
+lydstreaming over et datanettverk mellom minst to datamaskiner som er
+kapable til å konvertere digitale bits med lydbølger og stillhet til
+akustiske lydbølger i et stereoheadsett eller monohøytalere.
+
+Arbeidet med å finne radiostasjoner som sender direkte radio har tatt
+mest tid.  De fleste radiostasjonene er tilknyttet universiteter og
+høgskoler, noen av radiostasjonene er kommersielle, mens andre er
+offisielle kringkastingskanaler som National Public Radio (NPR) i U.S.A.,
+British Broadcasting Corporation (BBC) i Storbritannia, Radio Eins (RDS) i Tyskland, Danmarks Radio (DR) i Danmark, Sveriges Radio (SR) i Sverige og Norsk
+rikskringkasting (NRK) i Norge.  Mange av stasjonene i U.S.A. har reklame
+foran sendingen når en begynner å lytte.  Dette gjelder
+f.eks. American University Radio (WAMU) som har vært den viktigste
+National Public Radio (NPR) medlemsstasjonen for Washington siden 2007 og
+Hawaii Public Radio i U.S.A. som kringkaster National Public Radio
+(www.npr.org) i U.S.A. som ble startet 26. februar 1970 i Washington,
+D.C., i U.S.A.  I 1979 startet lobbyorganisasjonen National Cable
+Television Association i Washington, D.C. den amerikanske
+radiostasjonen C-SPAN (Cable Satellite Public Affairs Network -
+\url{http://www.c-span.org/}), som kringkaster forhandlingene i
+Kongressen (United States House of Representatives) og Senatet (United States Senate) i Washington, District of Columbia, U.S.A.  På tidspunktet da dette ble skrevet foregikk det en riksrettssak mot President Donald J. Trump som først var diskutert i Kongressen og deretter fremmet i Senatet og en virus-pandemi kjent som Korona/COVID-19 som har rammet mennesker i hele verden.
+
+\section*{Prosjektet}
+Dataskrivebordet GNU Network Object Model Environment (GNOME) ble
+startet av Miguel de Icaza, Federico Mena og Elliot Lee i august 1997
+basert på Gimp Tool Kit (GTK+) fra UC Berkeley i U.S.A. og videreutviklet
+av Red Hat Software, Inc. i Red Hat Development Labs og Eazel, Inc.
+GNOME Foundation som ble etablert under GUADEC 2000 ved ENST på
+Telecom France i Paris 17. mars 2000 og har støttet utviklingen av
+GNOME og sosiale møter mellom GNOME-utviklere på konferansen GUADEC i
+19 byer.
+
+Arbeidet med programvaren GNOME Internet Radio Locator begynte ved
+Norsk Regnesentral i 2002.  Utviklingen ble startet igjen 1. november
+2014 med publisering av versjon 0.1.0 og fortsatte i 2015, 2016 og
+2017 med tekstsøk og radiostasjoner i XML-fila
+\url{http://www.gnome.org/%7eole/gnome-internet-radio-locator/gnome-internet-radio-locator.xml}
+  og direktestrømming av radiostasjoner ved hjelp av GStreamer,
+  publisering av 1.0.0 16. september 2018, 2.0.0 20. februar 2019 og 3.0.0 24. januar 2020.
+
+En ny variant (gnome-internet-radio-locator) med omskrivning for GNOME
+3 begynte i 2017 med støtte for OpenStreetMap og kartmarkører.  En ny
+omskrivning for GTK+ 4 begynte i 2018.
+
+I 2019 la jeg til farger på markørene og publiserte versjon 2.0.4 av
+gnome-internet-radio-locator som del av GNOME-prosjektet 24. mai 2019.
+
+Jeg publiserte gnome-radio versjon 0.2.0 10. september 2019 og
+gnome-internet-radio-locator versjon 3.0.1 24. januar 2020.
+
+Programmet støtter 124 radiostasjoner i 97 byer i Australia,
+Sør-Afrika, Saudi Arabia, Catalonia, Belgia, Italia, Frankrike,
+Storbritannia, Dublin, Irland, Skottland, Færøyene, Tyskland, Danmark,
+Sverige, Finland, Russland, Mexico, Guatemala, Canada, U.S.A. og Norge.
+
+I Norge er de lokale radiostasjonene til NRK P1 i Trøndelag, Nordland,
+Finnmark, Innlandet, Buskerud, Rogaland, Møre og Romsdal, Sogn og Fjordane,
+Hordaland, Sørlandet og Østfold oppmarkert på kartet over Norge.
+
+Internasjonale radiostasjoner er oppmarkert på kartet i resten av verden.
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-world.png}}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-africa.png}}
+{\blueem Saudi Arabia and South Africa}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-america.png}}
+{\blueem United States of America, Mexico, Guatemala and Canada}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-europe.png}}
+{\blueem Norway, Denmark, Sweden, Finland, Scotland, Ireland, United Kingdom, Poland, Germany, France, Italy, Russia}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-nordic.png}}
+{\blueem Faroe Islands, Scotland, Norway, Denmark, Sweden, Finland, Russia}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-norge.png}}
+{\blueem Buskerud, Rogaland, Møre og Romsdal, Sogn og Fjordane, Kristiansand, Hordaland, Østfold}
+\end{center}
+
+\newpage
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{screenshot.png}}
+{\blueem Screenshot of gnome-internet-radio-locator 2.4.0}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-radio-kthr.png}}
+{\blueem Screenshot of gnome-radio 0.2.0 (Hawaii Public Radio)
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-radio-scpr.png}}
+{\blueem Screenshot of gnome-radio 0.1.7 (Southern California Public Radio)}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-radio-wnyc.png}}
+{\blueem Screenshot of gnome-radio 0.1.5 (New York Public Radio)}
+\end{center}
+
+\begin{center}
+\colorbox{white}{\includegraphics[width=1.0\hsize]{gnome-radio-mapbox.png}}
+
+{\blueem Screenshot of gnome-radio 0.1.6 (MapBox)}
+\end{center}
+
+Arbeidet vil fullføres innen 30. juni 2020.
+
+\tableofcontents
+
+\newpage
+
+\section*{Topics}
+\begin{verbatim}
+Part I: Electricity
+Chapter 1: Electrical Engineering
+Part II: Radio
+Chapter 2: American, British, Norwegian and European Radio History
+Chapter 3: Audio waves
+Chapter 4: Electrical fields
+Chapter 5: Electrical systems
+Part III: Computers
+Chapter 6: Computer systems
+Chapter 7: Computer storage
+Chapter 8: Network systems
+Chapter 9: Network adressing
+Chapter 10: Internet systems (Internet Protocol)
+Chapter 11: Domain Name Systems for Internet systems
+Chapter 12: Radio microphones
+Chapter 13: Audio systems
+Chapter 14: Audio codecs
+Chapter 15: Audio fingerprinting
+Chapter 16: Audio response
+Chapter 17: Visual response
+Chapter 18: Graphical Display interfaces
+Chapter 19: Operating systems
+Chapter 20: Installation systems
+Chapter 21: Desktop systems
+Chapter 22: Mapping systems
+Chapter 23: Graphical User Interface systems
+Chapter 24: Experiment
+Chapter 25: Result of experiment
+Chapter 26: Final production systems
+Chapter 27: Survey
+Chapter 28: Result
+Chapter 29: Future work
+Part IV: Software
+Chapter 30: Position in the 7 Layers of the OSI Model
+Chapter 31: Source Code in gnome-internet-radio-locator-3.0.1.tar.xz
+Chapter 32: Source Code in gnome-radio-0.2.0.tar.gz
+Chapter 33: Software Packages for i386, x86 64 and amd64
+Chapter 34: References
+Part V: Software Packages for i386, x86 64 and amd64
+Part VI: Figures and Layouts
+Chapter 35: Illustrations
+Chapter 36: Circuits
+Part VII: Classification of radio
+Part VIII: Human vs. algorithmic curation of music on radio
+Part IX: Rescue and emergency communication on public radio
+Part X: Essay: Democratic voices on public radio in Norway as Free Software (gnomeradio.org)
+Part XI: Binary Delivery
+\end{verbatim}
+
+\newpage
+
+\part{Electricity}
+
+\chapter{Electrical Engineering}
+
+    A. P. Trotter, a leading British electrical engineer, wrote that
+    ``electrical engineering was born at the Paris Exhibition'' (1889),
+    one of the first long distance radio transmissions happened from the
+    Eiffel tower in Paris from the Paris Exibition in 1889 on January 12, 1908.
+
+    As it is shown in this thesis, that primarily documents the
+    computer software implementation in the computer programming language 
+    ANSI C of the Free Software radio software packages GNOME Internet Radio Locator
+    (gnome-internet-radio-locator) and GNOME Radio (gnome-radio)
+    implemented and published in this paper, it was possible to
+    visualize some of the modern age Internet radio broadcasters on a
+    world map about 109 years later in 2017 with the help of the free
+    software libraries GTK+/GNOME, GStreamer and libchamplain in the
+    GNOME Radio project (\url{http://www.gnomeradio.org/}) and
+    automatically begin the reception of a live radio broadcast on a
+    personal computer running the free computer operating systems Debian
+    GNU/Linux, Fedora Core and Ubuntu Linux from free radio stations
+    broadcasting around the world over the Internet.
+    
+    The work continues in the GNOME Radio project after this thesis
+    was summoned on January 24, 2020, with the release of GNOME
+    Internet Radio Locator version 3.0.0.
+
+    Visit
+    \url{http://www.gnomeradio.org/} for details on how to install
+    software for visualizing the location on a world map and begin
+    the reception of a live radio broadcast on Free Software systems
+    such as GNU/Linux.
+
+\part{Radio}
+
+\chapter{American, British, Norwegian, and European Radio History}
+
+    According to The Oxford Companion to American History, radio was
+    theoretically foreseen in 1865 by the Scottish physicist James
+    Clerk Maxwell.  His electromagnetic equations led to experiments
+    by the German physicist Heinrich Hertz, who, by using an
+    electrical discharge, produced the 'hertzian,' or radio, waves
+    (1886).  His work was in turn advanced before 1900 by the research
+    of the Italian physicist Guglielmo Marconi, and by the electrical
+    engineer John Fleming, who perceived that a specially constructed
+    light bulb ('diode') could serve to detect radio signals.  The
+    related invention in 1906 of the three-electrode vacuum tube by
+    Lee de Forest made radio practicable by its ability to amplify
+    weak signals.
+
+    The first successful telegraph was demonstrated by Samuel Finley
+    Breese Morse, with a network linking Washington DC to Baltimore in
+    the United States of America with 35 miles of copper cable.  His
+    first transmitted telegraphic message on May 24, 1844 was: ``What
+    hath God wrought'', transmitted in Morse code on line from
+    Washington, D.C., to Baltimore, according to the books
+    ``Principles of Digital Audio'' by Ken C. Pohlmann published by
+    McGraw-Hill in 2000 and Webster's Guide To American History
+    published by G. \& C. Merriam Company, Publishers in Springfield,
+    Massachusetts, U.S.A. in 1971.  Though construction of line was
+    financed by the government, Morse failed to persuade it to buy
+    rights to his invention and formed his own company.  His partner
+    Alfred Vail invented telegraphic printer in 1844.
+
+    On February 14, 1876, Alexander Graham Bell, a successful teacher
+    of the deaf, filed for a patent on a magnetoelectric telephone
+    device where the human voice could be transmitted in a two-way
+    system.  He demonstrated his invention on March 10, 1876 at the
+    Philadelphia Centennial Exhibition of 1876 and attacted
+    considerable attention.  The first telephone system, with 21
+    subscribers, was established two years later in New Haven,
+    Connecticut.
+
+    Thomas Alva Edison produced the initial audio wave recording on
+    a sheet of tin foil wrapped around a cylinder that can be turned
+    on December 6, 1877 of him reciting ``Mary Had a Little Lamb''.
+
+    The first telephone communication between cities opened in 1877
+    between Salem, Massachusetts, and Boston, and Chicago and Milwaukee.
+    By 1880 almost 150 separate telephone companies were operating 34,000
+    miles of lines.
+
+    The successful development of telegraph and telephone in the
+    United States led to near-monopolies by Western Union (telegraph)
+    and American Telephone and Telegraph Company (AT\&T) (telephone).
+    At the same time, as electricity was used more after 1880,
+    companies appeared that manufactured electric lights, electric
+    motors and the like.   The most important electrical manufacturing
+    firms were Westinghouse, started in 1886, which brought the alternating
+    current power system to the United States, and General Electric (GE),
+    formed in 1892 as an amalgamation of two older firms, including
+    Thomas Alva Edison's.   After several years of competition and
+    patent arguments, GE and Westinghouse agreed in 1896 that GE should
+    receive two-thirds of the business growing from their shared patents.
+    This early patent ``pool'' agreement was an important precedent for
+    the radio manufacturing industry.  Another important firm was Western
+    Electric, which specialized in telephone communications equipment and
+    was taken over by American Telephone and Telegraph Company in 1881.
+
+    The first important armed-forces tests of radio were conducted
+    independently by the United States Navy and the British Royal
+    Navy in 1899.  The American tests were made of Marconi apparatus
+    aboard the U.S. battleships New York and Massachusetts.  Although
+    radio signals bridged distances of up to 40 miles, it was clear
+    that the lack of suitable tuning devices led to unacceptable
+    interference.
+
+    Radio clearly was such a potential saver of lives and property in peril
+    at sea that otherwise practices that interfered with its maritime
+    operation had to be overcome.
+
+    By 1909 the Bell system was so successful that the American
+    Telephone and Telegraph Company (AT\&T) was able to purchase
+    Western Union - only to have to resell it in 1914 because of the
+    antitrust laws.
+
+    AT\&T was split into several parts in 1884.  Bell's basic patents
+    expired in 1894.
+
+    The Radio Act of 1912 established several key legal and regulatory
+    principles that continue to undergird broadcast regulation
+
+    Radio broadcasting was a new electrical communications concept.
+    Radio removed our dependence on wires, and finally ``broadcasting''
+    presented a new concept.
+
+    Wireless, or radio, is a logical extension of wired telegraphy and
+    telephony.  Wires are easily broken and hard to string between
+    distant communities or over physical obstacles.  With wireless
+    techniques, communication could take place as rapidly as with
+    wired devices but did not require a physical connection.  Distant
+    locations could be contacted quickly, relaying might be unnecessary,
+    and ships could keep in touch with land.  The penalty for this was
+    that a radio message would go out in all directions at once and could
+    be picked up by anyone who cared to listen.
+
+    The Radio Act of 1912 established several key legal and regulatory
+    principles that continued to undergird broadcast regulation more
+    than three quarters of a century later.  In the beginning the
+    federal government would control broadcasting.  No one could
+    broadcast without a license from the Secretary of Commerce and
+    Labor.   The 1912 Act declared that broadcasting without a license
+    was illegal and that only the government could convey a license.
+
+    During World War I, the Navy was able to gain control of all radio
+    stations in the United States except those operated by the Army.
+
+    The Radio Corporation of America came into being 17 October 1919.
+    
+    In March 1919, only a few months after the end of the First World
+    War, the voice of a British wireless operator was heard nearly
+    three thousand miles away across the Atlantic in the United
+    States.  This was probably the first external broadcast ever made
+    from the British Isles - the transmitter was in Ballyunion in
+    Ireland - and was look on at the time as uncanny, according to the
+    book ``A Skyful of Freedom - 60 Years of the BBC World Service''
+    by Andrew Walker published by Broadside Books Limited in 1992.
+
+    Once the wartime restrictions on transmission were lifted in September
+    1919, the amateur broadcasters were back in force, and because so many
+    had served in the war, they were familiar with the latest technological
+    advances.
+
+    Radio remained in its experimental stage until improvements,
+    especially those by E. F. W. Alexanderson, who opened the way for a
+    primitive form of broadcasting in 1920.  Soon thereafter notable
+    advances made possible the growth of broadcasting chains and the
+    development of international transmissions.
+
+    Following the broadcast of the 1921 World Series between the Yankees and
+    the Giants on WJZ, broadcasting as we know it took off.
+
+    In late March 1923 Hoover called a second National Radio Conference.
+
+    In 1924 there was 2,500,000 radios in the United States, as opposed to
+    5,000 sets in 1920.
+
+    On November 30, 1924 Radio Corporation of America (RCA)
+    demonstrated wireless telegraph transmission of photographs from
+    New York to London.
+
+    The first loudspeaker was developed in 1925 by Rice and Kellog shortly
+    after the valve amplifier.
+
+    The British Broadcasting Corporation was established on 1 January 1927.
+    It was the direct successor of the British Broadcasting Company which
+    had been formed in 1922 as a consortium of manufacturers of domestic
+    wireless receiving sets.  The newly-established body was now set up as a
+    public corporation under Royal Charter, deriving its authority from the
+    King in Council.   This constitutional device was adopted in order to distance
+    the corporation from the government and from parliament, although ultimately
+    it was to be responsible to them.   Designed to provide public service 
+    broadcasting of a high quality the BBC enjoyed a monopoly until 1955,
+    when commercial broadcasting was introduced.  Initially, the BBC was put
+    under the control of the Postmaster General, but in 1974, broadcasting
+    matters were transferred to the Home Office, and the Home Secretary became
+    the minister responsible for broadcasting.   As the minister in charge of the
+    BBC at the time of its establishment, the Postmaster General assumed the task
+    of framing its legal basis.  And, despite the fact that the BBC was meant to be
+    distanced from the government, he provided himself with overriding formal powers
+    over transmissions and the content of programmes: among other things, he could
+    require the BBC to broadcast or to refrain from broadcasting any matter as he saw
+    fit. (Etzioni-Halevy 1988)
+
+    In the United States of America, National Broadcasting Company was
+    organized as first nationwide radio broadcasting network in 1926;
+    National Broadcasting Company (NBC) was established in 1926,
+    Columbia Broadcasting System (CBS) was organized in 1927 and
+    Mutual Broadcasting System (MBS) was founded in 1934.
+
+    Federal Radio Commision was created in 1927.   The Radio Act of 1927
+    enacted ideas that had been in the legislative hopper since the first
+    National Radio Conference.
+
+    The two key aspects of the Radio Act of 1927 are the declaration
+    that there could be no private ownership in the entire spectrum
+    and the related decision that users of the spectrum would be
+    licensed under the public interest standard.  The new Radio Act
+    put first things first.  Although the 1912 Act had required a
+    license to use the air, it had been silent on the issue of
+    ownership of the airwaves.  The 1927 Act was not.  It bluntly
+    declared that there could be no private ownership of the airwaves;
+    they were public and use could occur only with the government's
+    permission.  That permission, in the form of a license, would be
+    granted without charge, but for no more than three years.
+
+    The first audio broadcasts used amplitude modulation (AM) of the
+    carrier wave in the MF and HF bands.  According to the book ``The
+    Art of Sound Reproduction'' written by John Watkinson and published
+    by Focal Press in 1998, AM broadcasts are prone to interference
+    and do not reproduce the whole frequency range, but AM works for
+    long distance broadcasts.  Shortly before the Second World War frequency
+    modulation (FM) was developed.
+
+    Edwin H. Armstrong, originally backed by Radio Corporation America,
+    developed a system for transmitting radio based on modulation in the
+    frequency (hence FM, frequency modulation) instead of the amplitude (AM,
+    amplitude modulation) of the radio wave.   FM can transmit anything the
+    human ear can hear and more.  AM has the advantage that it can transmit
+    farther than FM, but that is its only advantage.
+
+    Armstrong was believed to have conceived and invented wideband
+    frequency modulation (FM) on September 1931, while his patent was
+    granted on December 26, 1933.
+
+    In November 1934 Federal Communications Commission (FCC) replaced
+    Federal Radio Commission.  It is authorized to control all foreign
+    and interstate radio, telegraph, and cable communications.
+
+    According to Section 3(0) of the Communications Act of 1934,
+    broadcasting is ``the dissemination of radio communications''
+    intended to be received by the public, directly or by means
+    of intermediary relay stations.
+
+    We should establish here that broadcasting signifies transmission
+    of music, speech, and/or pictures in forms that the general public
+    can understand, on a regular and announced schedule, on a frequency
+    band for which the general public has receivers, by a station
+    licensed by the government for that purpose (if licensing was then
+    required).
+
+    The public interest was a bedrock requirement for the issuing of a
+    radio station license from the very beginning.  It is a paramount
+    philosophy of the Communications Act of 1934.
+
+    By the late 1930s, radio was woven into the fabric of American life.
+    Public events, from political rallies to sporting events and vaudeville
+    routines, were now enjoyed by millions in private.
+    
+    The invention in 1939 of a new form of radio transmission and 
+    reception, frequency modulation (FM), by E. H. Armstrong,
+    eliminated static and improved fidelity.
+
+    In the beginning the Federal Communications Commission (FCC)
+    granted radio station licenses and required radio stations to
+    classify programming into a minimum of seven categories:
+    Entertainment, Religion, Agricultural, Educational, News,
+    Discussion, and Talks.
+
+    Increasingly, Americans got their news from radio, especially news
+    of the expanding war in Europe.
+
+    The immediacy and drama of the war news tied people more intimately
+    to unfolding events, it also, apparently, put some on edge.
+
+    During World War II listening to radio from the BBC became very
+    important in Norway, where the BBC at first had problems of
+    credibility because of its over-optimism during the military
+    campaign of 1940.  It was accused of having put out ``fake news''
+    - ``just another form of propaganda'' much like the U.S. President
+    Donald J. Trump accused the media of in the beginning of his presidency.
+
+    The Norwegian democratically elected government and King Haakon
+    escaped to London on April 9th, 1940 and so did several members of
+    the broadcasting service.  They were eventually seconded to the
+    BBC at their own request and worked so successfully with their
+    British colleagues that by 1941 a Norwegian who escaped to the
+    United States was reporting: ``Nobody reads any news papers or
+    listens to any radio except the BBC.''
+
+    After Denmark was occupied by Nazi Germany in 1940 a Danish political 
+    leader who had escaped to Britain broadcast a call for action over the 
+    Danish service when it did report the heroism shown in other occupied 
+    countries in 1942.   From then on Danes regarded themselves at war and
+    the BBC was with them.
+
+    The North American service gradually grew until by 1942 it was on
+    the air for more than seven hours a day.  By that time the United
+    States was in the war, and there were programmes linking the
+    American and Canadian forces in Britain with home.  American
+    programmes were transmitted to Britain via a BBC studio in New
+    York.
+
+    On D-Day, the invasion of Normandy, no fewer than 725 out of 914
+    radio stations in the U.S.A. carried BBC War Reports.  In the first
+    half of 1945 regular rebroadcasting reached a peak.  It was
+    estimated that over 15 million people in the States were hearing
+    one or more BBC programmes a week as the war in Europe drew to a
+    close. (Walker 1992)
+
+    By 1950 92\% of households had radios, and the direction of
+    industry expansion was in the range of offerings (stations) and in
+    the encouraging the ownership of more than one radio.  In
+    contract, at that time only 62\% of households had a telephone.
+    Over the next 38 years, the role of radio changed, but did not
+    diminish.
+
+    From In 1957 FM accounted for only 2 percent of radio ad sales,
+    but increas ed to 15 percent by 1965.
+
+    Corporation for Public Broadcasting is a private, nonprofit
+    corporation created by Congress in the Public Broadcasting Act of
+    1967.
+
+    In 1969 the Public Broadcasting System (PBS) was established, which received
+    some federal money to support noncommercial and educational programs.
+    But according to The Reader's Companion to American History, PBS must
+    still rely on viewer support and corporate sponsorship to survive.
+
+    In 1970 with the help from Corporation for Public Broadcasting, National
+    Public Radio (NPR), America's first National Public Radio Network was
+    established.
+
+    By 1988, the average household had six radios, and four out of
+    five adults listened to the radio every weekday.
+
+    Delivery of digital audio files over the Internet had became
+    possible in the early 1990s, soon after the introduction of the
+    World Wide Web and browsers, partly thanks to the new and
+    efficient audio coding system of mp3 (MPEG-1 Audio Layer III),
+    developed at the German Fraunhofer Institute between 1988-1992
+    simultaneously with audio coding for DAB (Fraunhofer 2009).
+
+    First attempts to stream audio over the Internet were also made by
+    that time, and after the introduction of the essential computer
+    software such as Real Audio, streaming started to gain popularity
+    (Priestman 2002; Menduni 2007).
+
+    Earlier when one had to first download the audio file and then
+    listen, the stream player made it possible to listen to the audio
+    while also receiving it.  The sound quality was not very high at
+    first, but the number of radio stations offering audio streaming
+    services over the Internet grew rapidly in the 1990s, especially
+    in the United States (Lax and Ala-Fossi 2008).
+
+    Digital radio is one of the most exciting developments ever in
+    radio.  The crystal clear sound, utterly silent background and
+    interference free reception delivers a new level of performance
+    from broadcast sources.
+
+    The New York Times welcomed the new digital revolution as the
+    ``biggest technological leap'' since FM technology was developed
+    in the 1940s and 50s', offering the same ``high quality'' of sound
+    -- free of static and hiss. (O'Neill 2010).
+
+    The experience of a digital broadcast of a live symphony orchestra
+    concert is astonishing.
+
+\chapter{Sound waves}
+
+    On radio you can listen to immediate sound waves in the broadcasts.\\
+
+    Longitudinal waves in a medium, usually in air, are called sound
+    waves.\\
+
+    The most general dedinition of sound is a longitudinal wave in a
+    medium.\\
+
+    The wave function for a sound as a longitudinal wave $y(x,t)$
+    can be described as the interval $t$ with amplitude $A$ with
+    the cosinus function, if the wave is sinusoidal.
+
+    \begin{math}
+      y(x,t) = A cos (kx - \omega{}t)
+    \caption{Sound wave propagating in the +x-direction}
+    \end{math}
+
+    In the longitudinal wave the displacements are parallel to the
+    directional of travel of the wave, so distances x and y are
+    measuree parallel to each other, not perpendicular as in a
+    transverse wave.  The amplitude A is the maximum displacement
+    of a particle in the medium from its equilibrium position.
+
+    Sound waves from radio in air are compressed and decompressed pressure
+    fluctuations between the
+    amplitude device and human ears.  This field is further described in
+    biology or physics and is not a subject in electrical engineering,
+    but we know that the human ear is sensitive to waves in the frequency
+    range from about 20 to 20,000 Hz, the audible range, that can be
+    reproduced on electronical devices as the pressure differences can
+    be sensed on microphones and simular devices.
+
+    For audio in uncompressed form (16-bit linear PCM) with a sample
+    frequency of 48kHz the data transferred is equal to
+    $48000$ Hertz that equals 1536000 bits per second or 192 kbits
+    per second.
+
+    Waves of shorter wavelength $\Lambda$ (larger wave number $k = 
+    \frac{2\Pi}{\Lambda}$ have greater pressure variations for a given 
+    displacement amplitude because the maxima and minima are squeezed closer 
+    together.
+    
+    In electrical engineering an audio receptor is a microphone, while
+    an audio transmitter is a loudspeaker or a headset.  The speed of
+    sound in hot air (20 C) is 343 meters/second.
+    The sound wave falls to 0 dB after the initial signal-to-air curve.
+
+    With Internet radio there is very little or no delay in sound waves in
+    the broadcasts between the listener and the presenter or musician in a
+    live radio broadcast.
+
+\chapter{Electrical fields}
+
+    Electrical fields are based and formed when a wire is ignited with
+    power from a power generator such as a dynamo, turbin generator or
+    chemical fluid in a battery such as 9 Volt batteries from Duracell,
+    Energizer or VARTA.
+
+    The duration of the electrical field is determined by the flow
+    of electrical current and the flow of electrons from negative to
+    positive charge measured in Coloumb.
+
+\chapter{Electrical systems}
+
+    An electrical system consists of a wire, a circuit, a power
+    source and a capacitor.
+
+    There are three important kinds of electrical transmissions:
+    conduction, induction and radiation.
+
+\section{Conduction}
+
+    Conduction means the sending of impulses through a medium capable
+    of transmitting electricity - a wire, salt water, or the earth.
+
+\section{Induction}
+
+    Induction refers to the appearance of a current in one circuit
+    when it is placed near another, already charged, circuit, without
+    a physical connection.
+    Induction can cause cross-talk on a telephone circuit, and induction
+    coils permit the recording of telephone conversations without wire
+    hookups.
+
+\section{Radiation}
+
+    Radiation means the generation of electromagnetic waves, generally
+    sent out from an antenna.   The radio transmissions of today use
+    this last method, which became practical just before 1900.
+
+    The major findings of Scottish mathematician and physicist James
+    Clerk Maxwell, published in 1864, suggested that a signal could
+    be sent out electromagnetically that would be completely detached
+    from the point of origin.  Using mathematical equations, he
+    demonstrated that electricity, light and heat are essentially
+    the same and that all radiate at the same speed in free space.
+
+    German physicist Heinrich Hertz demonstrated the correctness of
+    Clerk Maxwell's theories in a series of experiments in 1887 and
+    1888.  The fundamental unit of frequency, the Hertz (Hz), is named
+    for him.  Hertz measured the speed of electromagnetic radiation (the
+    speed of light), the length of various waves, and similar parameters
+    but did not promote the use of wireless for communication.
+
+    In 1894, at the age of 20, Guglielmo Marconi read of Hertz's
+    experiments and aimed to apply this knowledge to communication.
+    By 1896 he could transmit and receive two miles or more on his father's
+    estate near Bologna.
+
+    On Christmas Eve 1906, Reginald Fessenden (1866-1932), the inventor of
+    amplitude modulation (AM), transmitted a program of speech and music
+    from Brant's Rock, Massachusetts, in what was probably the first
+    radio broadcast in the United States of America.
+
+    Reginald A. Fessenden became a professor of electrical engineering at the
+    University of Pittsburg after having worked for Thomas Alva Edison and with the
+    U.S. Weather Bureau on a system of wireless transmission of forecasts.
+    He wanted to develop a workable system of transoceanic wireless using
+    continous waves rather than Marconi's spark gap technique.  Fessenden
+    believed that this method would provide the power necessary for more
+    effective Morse code transmissions and simultaneously create the quieter
+    carrier wave required for voice transmission.
+
+\part{Computers}
+
+\chapter{Computer systems}
+
+    A computer system is a digital machine for computing numbers, producing
+    printed papers, transmitting data between another computing system,
+    visualizing graphics such as a map on a display system as described
+    in Chapter 13 (``Graphical Display Interfaces'') and resonating audio.
+
+\chapter{Computer storage}
+
+    Computers operate with temporary storage and solid-state storage.
+    In this thesis the storage is temporary and the data is a stream of
+    audio between two computers and a stream of map data as tiles.
+    See Chapter 17 (``Mapping Systems'').
+
+    Computers can store its physical location with GPS.  The logical
+    components read a stream of audio from the position of the GPS
+    antenna and displays the public broadcasts nearby.
+
+    The saturation will bring resonnance to the public spot and give
+    a good recording of audio from all angels and balcony spots.
+    The playback of the audio recording will be very precise.
+    I propose MLAR, a format for multiple-location audio recording
+    (MLAR).  MLAR, built on software from Xiph.org, will enable recording
+    from multiple device audio for playback and entertainment, with radio
+    locator and absolute precision (up to 10 meters).
+
+\chapter{Network systems}
+
+    A network system consists of three or more digital computer
+    systems (see Section 3.1 on ``Computer systems'') that can connect
+    between separated physical space and fields (see Chapter 4 on
+    ``Electrical systems'').
+
+\chapter{Network adressing}
+
+    Network adressing in IP is based on Internet Protocol adressing
+    of computer network adressing (physical and logical link).
+
+\chapter{Internet systems (Internet Protocol)}
+
+    The Internet was built upon the Internet Protocol described in RFC
+    781 (1981) and RFC 8098 (2017), documents known as ``Request for
+    Comments''.
+
+\chapter{Domain Name Systems for Internet systems}
+
+    The first Internet domain was symbolics.com introduced in 1985.
+    The rationale behind Internet domains under .com were commercial,
+    not in the public benefit like .org domains.
+
+    When computers were set up in networks, the Internet Protocol
+    addresses were at first static and stored in /etc/hosts on Unix.
+    At some point ICANN, ISC and IETF decided that the DNS configuration
+    should be hierarchical.
+
+    Today we have a system where domain names expire 1 year after
+    the registration date which promotes the free market dynamics,
+    but does not solve a technical problem, because the domains stop
+    working when the network operators don't receive the annual yearly
+    fee for the domain from the domain registrant and competes against
+    registrars.
+
+    The root servers on different Internet servers are hierarchical.
+    There are indications that domains should be dynamically
+    configured, maintained and stored forever.  There should be
+    a public archive of domain name system records with historical
+    records.
+
+    GNOME Internet Radio Locator is such a public archive for live
+    streams from 124 public radio station in the domain name system
+    with locality annotation.
+
+\chapter{Radio microphones}
+
+    Radio microphones are widely used in film, broadcasting, theater
+    and other industries, and it is not difficult to think of
+    circumstances in which freedom from trailing microphone cables can
+    be a considered advantage in all of the above.
+
+    See ``Sound and recording'' by Francis Rumsey and Tim McCormick
+    published by Focal Press for a discussion and a typical 48 volt
+    phantom powering arrangement in an electronically balanced
+    circuit.
+
+\chapter{Audio systems}
+
+    Audio was previously recorded for the first time by Thomas Alva
+    Edison on tin foil in 1878.  Marconi invented long-distance
+    transatlantic radio in 1901 and received the Nobel Prize in
+    Physics for this work in 1909 with Karl Ferdinand Braun.
+
+    The gramophone industry was built on recorded music, for private
+    listeners, public spots and playback on radio.  A public
+    gramophone player, the jukebox, brought music to the public and
+    private rooms.
+
+    Radio kept playing songs on request and some still do.
+    When the jukebox and audio amplification systems in homes
+    became popular, radio still survived, even with the introduction
+    of streaming audio systems in the early 2000 after the introduction
+    of audio codecs with good compression.  See Chapter 13 (``Audio codecs'').
+
+\chapter{Audio codecs}
+
+    The supported audio codecs in GNOME Internet Radio Locator are
+    based on the implementation of codecs in GStreamer such as MPEG,
+    FLAC, Ogg Vorbis and Advanced Audio Codec (AAC).
+
+    MLAR, proposed in Section 3.2 on Computer storage, will store
+    recorded audio in locations, at historical moments and scale rooms
+    from different view points.
+
+    MLAR stands for Multi-Location Audio Recording.
+
+    Picard from MetaBrainz Foundation is a cross-platform music tagger
+    written in Python that uses AcoustID audio fingerprints, allowing
+    files to be identified by the actual music, even if they have no
+    metadata.
+
+\chapter{Audio fingerprinting}
+
+    \begin{itemize}
+      \item Audio Fingerprinting software written in C# .NET by Yvo Nelemans\\
+        \url{https://github.com/nelemans1971/AudioFingerprinting}
+      \item Open source audio fingerprinting of broadcast mp3Open source audio fingerprinting of broadcast mp3\\
+        \url{https://stackoverflow.com/questions/38566477/open-source-audio-fingerprinting-of-broadcast-mp3}\\
+      \item Echoprint - An open music identification service\\
+        \url{https://www.ee.columbia.edu/~dpwe/pubs/EllisWP11-echoprint.pdf}\\
+      \item Codegen for Echoprint\\
+        \url{https://github.com/spotify/echoprint-codegen}\\
+      \item Finding duplicate songs in your music collection with Echoprint\\
+        \url{https://musicmachinery.com/tag/echoprint/}\\
+      \item MusicBrainz Fingerprinting\\
+        \url{https://musicbrainz.org/doc/Fingerprinting}\\
+      \item The Echo Nest\\
+        \url{http://the.echonest.com/}
+    \end{itemize}
+
+\chapter{Audio response}
+
+    The response of audio is vital in any audio system.  Radio
+    broadcasts important messages that sometimes are
+    location-sensitive to the public and it is crucial in saving lives
+    with distance between the signal and location.  The distance for
+    audio broadcasted on radio is typical limited by the power of the
+    radio transmit in FM.  With radio broadcasted over the Internet,
+    the distance is unlimited.
+
+\chapter{Visual response}
+
+    The response of visual elements are essential in any graphical system.
+    Quick visual response makes it easy to operate a computer system with
+    a screen and a navigation device.  See Chapter 22 (``Graphical User Interface systems'').
+
+\chapter{Graphical Display interfaces}
+
+    The X Window System revolutionized the computing industry when it
+    was introduced at Massachusetts Institute of Technology (M.I.T.)
+    in 1984.  GTK+, the GNU Image Manipulation Toolkit, announced at
+    UC Berkeley in 1996, was the first free, LGPL widget toolkit for
+    the X Window System and it made it possible to write Free Software
+    programs with good graphical appearance for the X Window System in
+    networks.
+
+    The GNOME project, a free desktop for the X Window System built on
+    the GTK+ library, was announced in 1997 at UNAM in Mexico City.
+    The work on GNOME Internet Radio Locator began in 2002 at
+    Norwegian Computing Center and continued after a visit to
+    M.I.T. in Cambridge, MA in June 2014 as I became aware of
+    OpenStreetMap, libchamplain and GNOME Maps.
+
+    The initial 1.0 release was announced on
+    gnome-announce-list@gnome.org and published on
+    https://download.gnome.org/sources/gnome-internet-radio-locator/
+
+    Work on the GNOME 3 application gnome-internet-radio-locator began in
+    2017 and work on the GTK+ 4 application gtk-internet-radio-locator began
+    in 2018.
+
+    Work on writing the GNOME Radio application gnome-radio from scratch
+    began on February 17, 2019.
+
+\chapter{Operating systems}
+
+    The introduction of the Linux kernel by Linus Torvalds at
+    University of Helsinki, after the delay of the GNU Hurd
+    microkernel, written from scratch in machine assembler and
+    published under the GNU General Public License, marked the next
+    technical revolution in home computing and eventually saved the
+    society from huge costs as server operating system.  With Linux it
+    was finally possible to install Free Unix on a personal computer.
+    Alan Cox wrote large parts of the networking code and sound code
+    at University of Wales Swansea in the early 1990s.
+
+    Mac OS X from Apple, Inc. is a proprietary operating system
+    shipped with Macs.  The stability of the kernel in Mac OS X is due
+    to work by Jordan Hubbard from the FreeBSD project and the
+    maintenance of the Darwin kernel took many years of work between
+    2000-2018.  The choice of UNIX by Apple made many developers
+    switch from Linux to Mac OS X.
+
+\chapter{Installation systems}
+
+    Debian GNU/Linux and Ubuntu Linux maintains a software
+    installation package repository based on APT and dpkg.\\
+
+    \url{http://www.gnome.org/%7eole/debian/}
+      \\
+    \url{http://www.gnome.org/%7eole/ubuntu/}
+      \\
+      Fedora Linux maintains a tree of software in the dhf installation 
+      system on top of RedHat Package Manager (RPM) packages.\\
+    \url{http://www.gnome.org/%7eole/fedora/}
+      \\
+      The MacPorts project makes it easy to install open-source/free software
+      on Mac OS X with the port command in Terminal from a package repository
+      based on FreeBSD ports.\\
+      \\
+      The MacPorts packages gnome-internet-radio-locator and gnome-radio contain the packaged software implemented and described in this thesis.
+      \\
+      \url{https://ports.macports.org/port/gnome-internet-radio-locator/summary}\\
+      \url{https://ports.macports.org/port/gnome-radio/summary}
+
+\chapter{Desktop Systems}
+
+    The rise of Linux in the late 1990s with the GTK+ and GNOME
+    projects made people aware of the importance of free licenses and
+    the consequences of bad licensing.  The Open Source Initiative was
+    launched in 1998 and it was crucial in the public release of the
+    Mozilla Web Browser source code from Netscape, Inc.  Some
+    supporters of Open Source were critical of the GNU General Public
+    License.  The next generation of the Library GPL was dubbed Lesser
+    General Public License.  Free Software developers kept working on
+    GTK+, GIMP and GNOME and GStreamer.
+
+\chapter{Mapping systems}
+
+    Around 2004 the community began work on free geographical maps in
+    the OpenStreetMap.org project.  The project produces free maps of
+    geographical sites, buildings and roads in a crowd-sourced project
+    dubbed OSM.  In 2013 the GNOME project released GNOME Maps.  In
+    2017 support for OpenStreetMap in GNOME Internet Radio Locator as
+    well as support for libchamplain and gst-player was implemented.
+    In 2018 the work on the GTK+ 4.0 port began as
+    gtk-internet-radio-locator that is published in
+    https://download.gnome.org/sources/gtk-internet-radio-locator/
+
+\chapter{Graphical User Interface systems}
+
+    In 2017 libinput, a Free Software project to build graphical user
+    interface cursors and device input systems for Wayland, the
+    replacement display system after The X Window system, was
+    presented at GUADEC 2017 (see chapter 13: Graphical Display
+    Interfaces).  It provides input support for mice, trackballs, and
+    touch pads.  Work on documenting GNOME Internet Radio Locator
+    began at GUADEC 2017 at Manchester Metropolitan University in July
+    2017.
+
+\chapter{Experiment}
+
+    With components from BuildCircuit in Australia the FM transmitter
+    hardware was built by Adrian Szabo Aabech.  The software
+    gnome-internet-radio-locator was built by Ole Kr. Aamot.  A
+    breadboard with 5 resistors, 8 condensators, 1 inductor and 17
+    nodes was configured for the experiment Internet-to-FM.  The
+    transmitter works from 3 to 9 Volt for FM 92.1 Mhz.  The range
+    distance is 10 meters with 30 cm antenna.
+
+\section{Time-Dilation in Internet-to-FM Audio Signal}
+
+    An experiment in backward signal processing was performed
+    successfully in 2017 by Adrian Szabo Aabech and Ole Kr. Aamot.
+
+    A computer connected to the FM transmitter hardware and Internet
+    WiFi broadcasted international radio broadcasts from
+    gnome-internet-radio-locator to the bandwidth FM 92.1 Mhz from
+    remote audio sources broadcasted with HTTP/1.1 over the network
+    stack TCP/IP, hereby known as ``Internet-to-FM''.
+
+\section{Experiment Setup Details}
+
+\url{http://www.gnome.org/%7eole/HIOA2017.pdf}
+
+\chapter{Result of experiment}
+
+    Visual switching with audio feedback delay worked with
+    Internet-to-FM for FM transmitter broadcasting to FM receiver
+    wirelessly connected to a computer connected to WiFi and visually
+    running gnome-internet-radio-locator and broadcasting audio over
+    FM via live audio stream over Wireless Internet.
+
+    We could hear the latency delay between FM 92.1 MHz and WiFi 2400 GHz.
+
+\chapter{Final production system}
+
+    In 2001 Norwegian Computing Center built a full audio recording
+    studio in the Kristen Nygaard Building in Forskningsparken and
+    organized 01lab, a conference and meeting place for scientists and
+    artists.  A full studio was designed and built by Benum.
+
+    In 2002 I began work on a XML DTD and the GNOME Internet Radio
+    Locator program to stream audio from a FM radio connected to the
+    Internet in the studio of Radio NOVA, Radio Tellus and radiOrakel
+    to the GNOME desktop.
+
+\chapter{Survey}
+
+    Two of three patients, the third who is my opponent who thinks
+    that you should only listen to local radio stations, answered that
+    they enjoyed listening to NRK P2 and NRK Alltid Klassisk.
+
+    Two of three nurses prefer NRK P3, while the third who is my defender 
+    thinks that BBC World Service is the best radio station, because it's
+    from around the world.
+
+    The patient subject Geir installed Ubuntu 20.04 and GNOME Internet Radio
+    Locator 3.0.1 on his MacBook Air.  The patient subject Anne prefers free
+    walking in nature.
+
+    The experiment with the patient was successful.
+
+    The Corona epidemic in March 2020 led to isolation, while the nature of
+    radio is social and less people meet each other.
+
+    Radio as a medical technology is a tool in certain situations, but meeting
+    other people is important.  Radio can be an isolating facot in our lives,
+    but is a social tool for people with social anxiety. 
+    
+\chapter{Result}
+
+    The Internet-to-FM radio experiments with GNOME Internet Radio Locator software that finalizes the ideas explained in this thesis is
+    available from \url{https://www.gnome.org/%7eole/gnome-internet-radio-locator} and
+    \url{https://download.gnome.org/sources/gnome-internet-radio-locator/3.0/gnome-internet-radio-locator-3.0.1.tar.xz}
+
+\chapter{Future work}
+
+    In May 2018 the work on the GTK+ 4.0 port began as
+    gtk-internet-radio-locator that is published in
+    \url{https://download.gnome.org/sources/gtk-internet-radio-locator/}
+    \url{http://www.aamot.org/ole/thesis/aamot-thesis-20180929.zip}
+
+    In August 2019 I announced the GNOME Radio Project and published a
+    conference talk on GNOME Radio during GUADEC 2019 available from
+    \url{http://www.gnomeradio.org/GUADEC2019.pdf} with source code
+    available from \url{http://www.gnomeradio.org/0.2/gnome-radio-0.2.0.tar.gz}
+
+\part{Software}
+
+\chapter{Position of Radio in the 7 Layers of the OSI Model}
+
+    A Public Internet Radio Client for accessing Free Audio Maps such
+    as GNOME Radio is positioned in the following 7 Layers of the OSI
+    Model:
+
+    \begin{itemize}
+    \item Application (End User Layer): HTTP, DNS
+    \item Presentation (Syntax Layer): MPEG, OGG
+    \item Session (Synchronization): GStreamer
+    \item Transport (End-to-end Connections): TCP, UDP
+    \item Network (Packets): IP, ICMP, IPSec, IGMP
+    \item Data Link (Frames): Ethernet
+    \item Physical (Physical Structure): Coax, Fiber, Wireless, Hubs, Repeaters)
+    \end{itemize}
+
+\section{Application}
+
+    Application | GUI systems | End User Layer | Protocol Name\\
+    Radio | GTK+, GNOME | X, Wayland | HTTP, DNS\\
+
+\section{Presentation}
+
+    Presentation | Mapping systems | Syntax layer | Protocol Name\\
+    Audio Map | Champlain, OpenStreetMap | MPEG, OGG | ASN.1\\
+
+\section{Session}
+
+    Session | Desktop systems | Synchronization | Protocol Name\\
+    Synch | GStreamer | GstClock | PTP\\
+
+\section{Transport}
+
+    Transport | Operating systems | End-to-end connection | Protocol Name\\
+    Linux | GNOME | TCP, UDP | TCP/IP\\
+
+\section{Network}
+
+    Network | Internet systems | Packets | Protocol Name\\
+    Internet | INET | IP, ICMP, IPSec, IGMP | TCP/IP\\
+
+\section{Data Link}
+
+    Data Link | Computer systems | Frames | Ethernet\\
+    WiFi | 802.11 | MAC | LAN\\
+
+\section{Physical}
+
+    Physical | Network systems | Physical structure | Protocol name\\
+    Hardware | PC, Mac, Router, Switch, Patch Panel | PCB | Coax, Fiber, Wireless, Hubs, Repeaters\\
+
+\chapter{Source Code in gnome-internet-radio-locator-3.0.1.tar.xz}
+
+\url{http://download.gnome.org/sources/gnome-internet-radio-locator/3.0/gnome-internet-radio-locator-3.0.1.tar.xz}
+
+\section{gnome-internet-radio-locator.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator.c}
+
+\section{gnome-internet-radio-locator-gui.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-gui.c}
+
+\section{gnome-internet-radio-locator-listener.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-listener.c}
+
+\section{gnome-internet-radio-locator-markers.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-markers.c}
+
+\section{gnome-internet-radio-locator-player.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-player.c}
+
+\section{gnome-internet-radio-locator-program.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-program.c}
+
+\section{gnome-internet-radio-locator-runners.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-runners.c}
+
+\section{gnome-internet-radio-locator-station.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-station.c}
+
+\section{gnome-internet-radio-locator-stations-map.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-stations-map.c}
+
+\section{gnome-internet-radio-locator-streams.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-streams.c}
+
+\section{gnome-internet-radio-locator-tz.c}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-tz.c}
+
+\section{gnome-internet-radio-locator-gui.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-gui.h}
+
+\section{gnome-internet-radio-locator.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator.h}
+
+\section{gnome-internet-radio-locator-keys.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-keys.h}
+
+\section{gnome-internet-radio-locator-listener.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-listener.h}
+
+\section{gnome-internet-radio-locator-markers.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-markers.h}
+
+\section{gnome-internet-radio-locator-player.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-player.h}
+
+\section{gnome-internet-radio-locator-kb.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-player-kb.h}
+
+\section{gnome-internet-radio-locator-player-renderer.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-player-renderer.h}
+
+\section{gnome-internet-radio-locator-player-resourcer.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-player-resource.h}
+
+\section{gnome-internet-radio-locator-program.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-program.h}
+
+\section{gnome-internet-radio-locator-runners.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-runners.h}
+
+\section{gnome-internet-radio-locator-station.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-station.h}
+
+\section{gnome-internet-radio-locator-stations-map.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-stations-map.h}
+
+\section{gnome-internet-radio-locator-streams.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-streams.h}
+
+\section{gnome-internet-radio-locator-tz.h}
+
+\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator-tz.h}
+
+\chapter{Source Code in gnome-radio-0.2.0.tar.gz}
+
+\url{http://www.gnomeradio.org/0.2/gnome-radio-0.2.0.tar.gz}
+
+\section{gnome-radio-file.c}
+
+\lstinputlisting{gnome-radio-0.2.0/src/gnome-radio-file.c}
+
+\section{gnome-radio-file.h}
+
+\lstinputlisting{gnome-radio-0.2.0/src/gnome-radio-file.h}
+
+\section{gnome-radio-main.c}
+
+\lstinputlisting{gnome-radio-0.2.0/src/gnome-radio-main.c}
+
+\lstinputlisting{gnome-radio-0.2.0/gnome-radio.xml}
+
+\part{Software Packages for i386, x86\_64 and amd64}
+
+Debian GNU/Linux, Fedora and Ubuntu software installation packages of
+GNOME Internet Radio Locator for the computer hardware architecture
+i386, x86\_64, and amd64.
+
+\url{https://www.gnome.org/~ole/debian/gnome-internet-radio-locator\_3.0.0-1\_i386.deb}
+
+\url{https://www.gnome.org/~ole/fedora/RPMS/x86\_64/gnome-internet-radio-locator-3.0.0-1.fc31.x86\_64.rpm}
+
+\url{https://www.gnome.org/~ole/ubuntu/gnome-internet-radio-locator\_3.0.0-1\_amd64.deb}
+
+\part{Figures and Layouts}
+
+\chapter{Illustrations}
+
+The following illustrations document the position of radio in the open
+systems interconnection (OSI) model, and its free implementation as a
+graphical user interface software package GNOME Internet Radio Locator
+(gnome-internet-radio-locator) and GNOME Radio (gnome-radio),
+implemented as Free Software for Debian GNU/Linux, Fedora Linux,
+Ubuntu Linux, and MacPorts.
+
+\includegraphics[width=1.0\hsize]{osi-with-radio.jpg}
+
+\includegraphics[width=1.0\hsize]{gnome-radio-0.2.0.png}
+
+\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-europe.png}
+
+\includegraphics[width=1.0\hsize]{gnome-internet-radio-locator-nordic.png}
+
+\chapter{Electronical Layouts}
+
+\section{Wireless Transmission}
+
+\includegraphics[width=1.0\hsize]{transmitter.png}
+
+\section{Radio Transmission}
+
+\includegraphics[width=1.0\hsize]{fm-transmitter.png}
+
+\section{Microphone}
+
+\includegraphics[width=1.0\hsize]{microphone.png}
+
+% \section{Computer}
+
+% \includegraphics[width=1.0\hsize]{computer.png}
+
+\section{Loudspeaker}
+
+\includegraphics[width=1.0\hsize]{loudspeaker.png}
+
+\part{Classification of radio}
+
+When you publish music, photographs or video digitally, the physical representation of a scenery or humans visible in the exposured digital media can be labeled as places or with personal names and locations.
+Apple, Facebook, Google, Spotify and Twitter are software for classified information.
+This is more difficult with live radio in GNOME Radio, but the near exact location of the radio station broadcasting live voices of humans can't be recorded and categorized.
+In GNOME Internet Radio Locator no humans are identified on the broadcast, but the characteristic human voices of the presenters and debaters are differentiated by the listener.
+
+\part{Human vs. algorithmic curation of music on radio}
+
+In this Bachelor thesis I have advocated for Free Software and human music curation in Free Internet Radio in my thesis.
+
+Google Music and Spotify Radio is using a proprietary software algorithm to select what music to play.  With Google Music and Spotify Radio the user will listen to the same music she has been listening to because the algorithms lack human curation.
+Apple Music is promoting Beats 1, a human curated, but monopolistic radio station.
+
+Support for human curation from Spotity is discussed in this interview: 
+https://www.theverge.com/2015/9/30/9416579/spotify-discover-weekly-online-music-curation-interview
+
+\begin{quote}
+"This past June, legendary producer and major label insider Jimmy Iovine unveiled Apple Music as the grand finale of the tech titan’s semi-annual product showcase. "It’s a revolutionary music service curated by the leading music experts who we helped handpick," he declared, placing Apple firmly in the human curation camp. Apple’s curation service, Iovine promised, would match the song you hear to the mood and the moment. "Algorithms alone can’t do that emotional task. You need a human touch."
+\end{quote}
+
+Free Internet Radio is still a better alternative for listeners than Apple Music, Google Music and Spotify Radio, because of the human curation of music that is played on the air on a computer running Free Software is supported or funded by its listeners.
+
+Many stations included in gnome-internet-radio-locator have a audio message that says "You are listening to Free Internet Radio sponsored by listeners like yourself.  To donate, visit www.<STATION SIGN>.org".  Allthough these recorded messages repeats every time you switch station, most Internet radio stations are operated by humans.
+
+We support the element of human influence and consideration of music and debates in Free Internet Radio being funded and supported by the People and for the People, not by a billion dollar company such as Apple with human curation of a monopolistic station or by Google and Spotify with proprietary computer curation algorithms that makes you listen to the same music over and over again.
+
+Hypothesis
+
+Music on radio shouldn't be curated by a computer algorithm, but by humans.
+
+Conclusion
+
+Wrong at times, since it's on a computer, perhaps correct at Trump
+rallying events, but in the end he will be forgotten on the radio.
+
+\part{Rescue and emergency communication over public radio}
+
+In the case of evacuation of a physical area, due to Force
+Majeure events such as hurricanes, fires and wars, where a
+life-saving police, ambulance and hospital team would save
+lives during such events, the rescue and emergency work is
+coordinated and communicated over public radio broadcasts.
+
+Listen to radio for safety information about COVID-19 and other crisis.
+
+\part{Essay: Democratic voices on public radio in Norway as Free Software (gnomeradio.org)}
+
+\begin{verbatim}
+Ole Kristian Aamot (BS EE)
+olekaa@math.uio.no
+Department of Mathematics
+University of Oslo, Norway
+\end{verbatim}
+
+Norway is a democratic country with a public government and a minister cabinet choosen in democratic elections.
+
+Hospitals, kindergartens, schools and universities prepare and support 
+the voters for the Norwegian inclusive work and welfare state.
+
+Several free and independent radio stations in Norway broadcast democratic 
+debates on the progress of our country and civil society in peace.
+
+The radio stations in Norway that are available in GNOME Internet Radio Locator (gnome-internet-radio-locator) are NRK P1, NRK P2, NRK P3, NRK P11, NRK Alltid Nyheter, as well as regional broadcasts in NRK Østfold, NRK Vestfold, NRK Rogaland, NRK Hordaland, NRK Sørlandet, NRK Sogn og Fjordane, NRK Møre og Romsdal, NRK Trøndelag, NRK Nordland, NRK Troms og Finnmark that broadcast daily radio programs such as the hourly, daily and weekly news reports NRK Dagsnytt, NRK Morgennytt, NRK Formiddagsnytt, NRK Ettermiddagsnytt, NRK Dagsrevyen and NRK Kveldsnytt as well as the debate programs NRK Dagsnytt 18 and NRK Debatten.  In addition to NRK, there is support for 3 Public University student radio stations such as Radio NOVA at University of Oslo, Studentradioen i Bergen at University of Bergen, Radio Revolt at NTNU in Trondheim, Norway in the public Internet Radio client GNOME Internet Radio Locator described in the Bachelor thesis "Public Internet Radio Client for Accessing Free Audio Maps in Countries with Free Speech."
+
+\url{http://folk.uio.no/olekaa/thesis/bachelor/AAMOT-2020.pdf}
+
+The Norwegian democracy is upheld and protected by equal opportunities for 
+moderate and often radical voices on radio through sound arguments between 
+peers such as petitions from the left to the right in the Norwegian democracy.
+
+The elected party leader representatives such as Lan Marie Nguyen Berg (Miljøpartiet De Grønne), Erna Solberg (Høyre), Trine Skei Grande (Venstre), Jonas Gahr Støre (Arbeiderpartiet), Audun Lysbakken (Sosialistisk Venstreparti), Bjørnar Moxnes (Rødt), Kjell Ingolf Ropstad (Kristelig Folkeparti), Siv Jensen (Fremskrittspartiet) and Trygve Slagsvold Vedum (Senterpartiet) must argue in public debates on NRK Radio and TV, as representatives for the public opinion, as they argue for political beliefs and convictions on the best progress for the voting population in Norway.
+
+\part{Binary Delivery}
+
+\url{http://folk.uio.no/olekaa/thesis/bachelor/AAMOT-2020.zip}
+ 
+\printindex
+
+\end{document}

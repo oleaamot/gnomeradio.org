@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <title>Find nearest geographical nodes for 'N' nodes</title>
+        <link rel="stylesheet" href="http://dev.openlayers.org/releases/OpenLayers-2.13.1/theme/default/style.css" type="text/css" />
+        <link rel="stylesheet" href="http://dev.openlayers.org/releases/OpenLayers-2.13.1/examples/style.css" type="text/css" />
+	<style type="text/css">
+      <!--
+	table { font-family: Verdana; font-size: 9px; }
+     tr { text-align: left; }
+      -->
+    </style>
+  </head>
+  <body onload="init()">
+    <div id="mapdiv" style="width: 600px; height: 300px"></div>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script>
+      map = new OpenLayers.Map("mapdiv");
+      map.addLayer(new OpenLayers.Layer.OSM());
+      
+      epsg4326 = new OpenLayers.Projection("EPSG:4326"); //WGS 1984 projection
+      projectTo = map.getProjectionObject(); //The map projection (Spherical Mercator)
+      
+      var lonLat = new OpenLayers.LonLat(59.95364,10.77036).transform(epsg4326, projectTo);
+      
+      var zoom=14;
+      map.setCenter (lonLat, zoom);
+      
+      var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+      
+      var feature = new OpenLayers.Feature.Vector(
+      new OpenLayers.Geometry.Point(59.95364,10.77036).transform(epsg4326, projectTo),
+      {description:'name:"Radio NOVA<br />operator:radionova.no<br />MAC:0<br />last_seen:foo"'} ,
+      {externalGraphic: 'mesh.png', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-5, graphicYOffset:-5 }
+      ); vectorLayer.addFeatures(feature);
+      
+      map.addLayer(vectorLayer);
+      
+      //Add a selector control to the vectorLayer with popup functions
+      var controls = {
+      selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
+      };
+
+      function createPopup(feature) {
+      feature.popup = new OpenLayers.Popup.FramedCloud("pop",
+      feature.geometry.getBounds().getCenterLonLat(),
+      null,
+      '<div class="markerContent">'+feature.attributes.description+'</div>',
+      null,
+      true,
+      function() { controls['selector'].unselectAll(); }
+      );
+      //feature.popup.closeOnMove = true;
+      map.addPopup(feature.popup);
+      }
+      
+      function destroyPopup(feature) {
+      feature.popup.destroy();
+      feature.popup = null;
+      }
+      
+      map.addControl(controls['selector']);
+      controls['selector'].activate();
+      
+    </script>
+  </body>
+</html>

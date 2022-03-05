@@ -1,0 +1,93 @@
+       Radio       ﬂux      in   GNOME             Radio        ﬁelds      (2020)
+
+
+                      Ole   Kr.    Aamot,     University     of  Oslo
+                                       July   6, 2020
+
+    Electromagnetic     waves   are  disturbances    that provide    the  physical  basis  for
+light, radio and   television  waves,  as  well as infrared,  ultraviolet   and  x ray waves
+discovered   by  Marie   Curie.   Visible  light, audible   radio,  detectable   x  rays  and
+other  types  of  electromagnetic     waves   diﬀer  only  in their  frequency    and   wave-
+length.  Electromagnetic     waves    as visible light from   the  stars  of night has   trav-
+elled without   diﬃculty   across   tens  or hundreds   of light-years    of (nearly)  empty
+space  and  audible  radio  sound   waves  are  travelling from   stations  such  as WMBR
+at M.I.T.   in Cambridge,     MA    in Boston    up  to distances   larger  than   ﬁve  thou-
+sand  kilometers   between    Boston    and  Oslo  where   we   as listeners  on  computers
+in Oslo  can  listen  to sound    waves   recorded   with  a microphone      on  a computer
+in Boston    between   two  continents    in  the  world  due   to electromagnetic     waves
+and  the  products   from  work    in electrical engineering.    Faraday’s    Law  is named
+after the  English  scientist Michael    Faraday   (1791-1867)    who  ﬁrst  introduced    the
+concept   of ﬁeld  lines. He  called   them  ”lines  of force”  (Young/Freedman        2016),
+but the  term  ”ﬁeld   lines” is preferable.   An  electric ﬁeld  line is an  imaginary   line
+or curve  domain    through   a region   of space  so that  its tangent   at any  point  is in
+the direction   of the electrical-ﬁeld   vector  at that  point.  Electric   ﬁeld lines show
+the direction   of the  ﬁeld  E   at each   point  and  each  electric  ﬁeld   has a  certain
+electric charger   ﬂow,  a given   electric ﬂux.
+    200  years  ago  Danish    scientist  Hans   Christian  Oersted    discovered    the ﬁrst
+evidence   of the  relationship   of  magnetism    to moving    charges   as  he found   that
+a compass    needle  was  deﬂected    by  a current-carrying    wire.   Ampère’s    Law,   the
+relation  of magnetism    to moving    charges  discovered   by  André   Ampère,    inducing
+the displacement    current  discovered    by James   Clerk  Maxwell,    shows  that  a time-
+varying   electric ﬁeld  acts  as  a  source  of magnetic    ﬁelds,  and   is formulated    in
+terms  of the line integral of the  magnetic   ﬁeld  Baround     a closed  path, denoted    by
+Ampère’s    Law  for magnetic    ﬂux.   A  few years  later Michael    Faraday   in England
+and  Joseph   Henry   in the  United    States  discovered   that  moving    a magnet    near
+a conducting     loop  can  cause   a  current   in the  loop.    The   mutual   interaction
+between   the  two  ﬁelds, electric  and  magnetic    ﬁelds, is summarized     in Maxwell’s
+Equations.    Faraday’s   Law  tells  us a time-varying   magnetic    ﬁeld  acts as  a source
+of electric  ﬁelds,  while  Ampère’s     Law   shows  that  a  time-varying     electric ﬁeld
+acts as  a source  of magnetic    ﬁelds.
+    On  June   12th   2020,  based   on  the  previous   work   towering    in electrical  en-
+gineering   done   by  Miguel   de   Icaza,  Federico   Mena,    Linus   Torvalds,   Richard
+M.  Stallman,    John  von  Neumann,      Alan   Turing,   James   Clerk   Maxwell,    André
+Ampère,    Hans  Christian   Oersted   and  Michael   Faraday,   the  GNOME      Radio   Flux
+was  discovered.
+
+
+                                              1
+
+
+   The  GNOME      Radio  Flux  can  be  seen and  heard  for a radio ﬁeld line visible
+on the screen   of a GNU/Linux     computer    installed with  Debian   10, Fedora   32
+or Ubuntu    20.04  LTS  operating   system   that  is running   the  gnome-internet-
+radio-locator  software documented    in the Bachelor’s  thesis Public Internet  Radio
+Client for  Accessing   Free  Audio   Maps   in Countries    with  Free  Speech   (Oslo
+Metropolitan   University,  June  2020)  in Electrical Enginering.
+   The  full paper,  Bachelor’s  thesis report, essay, conference  talks and  software
+downloads   and  updates  for Debian  GNU/Linux     10, Fedora   32 and Ubuntu    20.04
+are published  on  the GNOME      Radio  Project’s  website  at www.gnomeradio.org
+and this author’s  homepage    at folk.uio.no/olekaa/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           2
+
+

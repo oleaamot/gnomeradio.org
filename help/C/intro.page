@@ -1,0 +1,37 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+            id="intro">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.11" date="2021-06-26" status="candidate"/>
+    <credit type="author copyright">
+      <name>Ole Aamot</name>
+      <email>ole@src.gnome.org</email>
+    </credit>
+    
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>    
+
+    <desc>GNOME Internet Radio Locator 12 for GNOME 41 lets you locate Internet radio stations around the world.</desc>
+
+  </info>
+
+  <title>Intro</title>
+  
+  <p><app>GNOME Internet Radio Locator 12 for GNOME 41</app> is a free
+  program for listening to free, independent, non-profit radio
+  stations from around the world by streaming over the Internet.</p>
+
+  <media type="image" mime="image/png" src="media/gnome-internet-radio-locator-main.png" />
+
+  <p>You must enable Location Services to run GNOME Internet Radio Locator.</p>
+
+  <p>To enable Location Services in GNOME 41, navigate to the Settings app
+  and choose Privacy/Location Services and make sure Location Services
+  is checked.</p>
+
+  <p>Alternatively, run the following command in a GNOME Terminal console:</p>
+
+  <code>gsettings set org.gnome.system.location enabled true</code>
+
+</page>

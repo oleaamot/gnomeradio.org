@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Search by location</title>
+<link rel="stylesheet" type="text/css" href="C.css">
+<script type="text/javascript" src="highlight.pack.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var matches = document.querySelectorAll('code.syntax')
+  for (var i = 0; i < matches.length; i++) {
+    hljs.highlightBlock(matches[i]);
+  }
+}, false);</script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body><main><div class="page">
+<header><div class="inner pagewide"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="GNOME Internet Radio Locator 12 for GNOME 41">GNOME Internet Radio Locator 12 for GNOME 41</a> » </div></div></div></header><article><div class="hgroup pagewide"><h1 class="title"><span class="title">Search by location</span></h1></div>
+<div class="region">
+<div class="contents pagewide">
+<p class="p">It is possible to search for supported radio stations based on the location of the station in <span class="app">GNOME Internet Radio Locator 12 for GNOME 41</span>.</p>
+<p class="p">Type a city name for a supported Free Radio station in a query field and
+  hit <span class="key"><kbd>ENTER</kbd></span>.</p>
+<p class="p">Supported city names are:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"><span class="code">Adelaide, Australia</span></p></li>
+<li class="list"><p class="p"><span class="code">Auckland, New Zealand</span></p></li>
+<li class="list"><p class="p"><span class="code">Austin, TX</span></p></li>
+<li class="list"><p class="p"><span class="code">Ayr, Scotland</span></p></li>
+<li class="list"><p class="p"><span class="code">Bergen, Norway</span></p></li>
+<li class="list"><p class="p"><span class="code">Berkeley, CA</span></p></li>
+<li class="list"><p class="p"><span class="code">Bern, Switzerland</span></p></li>
+<li class="list"><p class="p"><span class="code">Boston, MA</span></p></li>
+<li class="list"><p class="p"><span class="code">Bristol, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Brno, Czech Republic</span></p></li>
+<li class="list"><p class="p"><span class="code">Bronx, New York City, NY</span></p></li>
+<li class="list"><p class="p"><span class="code">Brooklyn, New York City, NY</span></p></li>
+<li class="list"><p class="p"><span class="code">Bruxelles, Belgium</span></p></li>
+<li class="list"><p class="p"><span class="code">Budapest, Hungary</span></p></li>
+<li class="list"><p class="p"><span class="code">Buenos Aires, Argentina</span></p></li>
+<li class="list"><p class="p"><span class="code">Calgary, Canada</span></p></li>
+<li class="list"><p class="p"><span class="code">Cambridge, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Cape Town, South Africa</span></p></li>
+<li class="list"><p class="p"><span class="code">Centralia, DC</span></p></li>
+<li class="list"><p class="p"><span class="code">Chapel Hill, NC</span></p></li>
+<li class="list"><p class="p"><span class="code">Chicago, IL</span></p></li>
+<li class="list"><p class="p"><span class="code">Cleveland, OH</span></p></li>
+<li class="list"><p class="p"><span class="code">Coimbra, Portugal</span></p></li>
+<li class="list"><p class="p"><span class="code">Copenhagen, Denmark</span></p></li>
+<li class="list"><p class="p"><span class="code">Cornwall, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Dublin, Ireland</span></p></li>
+<li class="list"><p class="p"><span class="code">Gent, Belgium</span></p></li>
+<li class="list"><p class="p"><span class="code">Guatemala City, Guatemala</span></p></li>
+<li class="list"><p class="p"><span class="code">Hammond, LA</span></p></li>
+<li class="list"><p class="p"><span class="code">Honolulu, HI</span></p></li>
+<li class="list"><p class="p"><span class="code">Houston, TX</span></p></li>
+<li class="list"><p class="p"><span class="code">Kingston, Canada</span></p></li>
+<li class="list"><p class="p"><span class="code">Kristiansand, Norway</span></p></li>
+<li class="list"><p class="p"><span class="code">Leeds, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">London, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Long Island, NY</span></p></li>
+<li class="list"><p class="p"><span class="code">Los Angeles, CA</span></p></li>
+<li class="list"><p class="p"><span class="code">Lund, Sweden</span></p></li>
+<li class="list"><p class="p"><span class="code">Manchester, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Memphis, TN</span></p></li>
+<li class="list"><p class="p"><span class="code">México City, México</span></p></li>
+<li class="list"><p class="p"><span class="code">Minneapolis, MN</span></p></li>
+<li class="list"><p class="p"><span class="code">Narvik, Norway</span></p></li>
+<li class="list"><p class="p"><span class="code">Nashville, TN</span></p></li>
+<li class="list"><p class="p"><span class="code">Newcastle, Australia</span></p></li>
+<li class="list"><p class="p"><span class="code">New Orleans, LA</span></p></li>
+<li class="list"><p class="p"><span class="code">New York City, NY</span></p></li>
+<li class="list"><p class="p"><span class="code">Nicosia, Cyprus</span></p></li>
+<li class="list"><p class="p"><span class="code">Nottingham, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Oslo, Norway</span></p></li>
+<li class="list"><p class="p"><span class="code">Oswego, NY</span></p></li>
+<li class="list"><p class="p"><span class="code">Ottawa, Canada</span></p></li>
+<li class="list"><p class="p"><span class="code">Oxford, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Palo Alto, CA</span></p></li>
+<li class="list"><p class="p"><span class="code">Paris, France</span></p></li>
+<li class="list"><p class="p"><span class="code">Phoenix, AZ</span></p></li>
+<li class="list"><p class="p"><span class="code">Pisa, Italy</span></p></li>
+<li class="list"><p class="p"><span class="code">Pittsburgh, PA</span></p></li>
+<li class="list"><p class="p"><span class="code">Portland, OR</span></p></li>
+<li class="list"><p class="p"><span class="code">Reykjavik, Iceland</span></p></li>
+<li class="list"><p class="p"><span class="code">Rochester, MI</span></p></li>
+<li class="list"><p class="p"><span class="code">Salford, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">San Marcos, TX</span></p></li>
+<li class="list"><p class="p"><span class="code">Santiago, Chile</span></p></li>
+<li class="list"><p class="p"><span class="code">São Paulo, Brazil</span></p></li>
+<li class="list"><p class="p"><span class="code">Seattle, WA</span></p></li>
+<li class="list"><p class="p"><span class="code">Space</span></p></li>
+<li class="list"><p class="p"><span class="code">Stockholm, Sweden</span></p></li>
+<li class="list"><p class="p"><span class="code">St. Pölten, Austria</span></p></li>
+<li class="list"><p class="p"><span class="code">Sydney, Nova Scotia, Canada</span></p></li>
+<li class="list"><p class="p"><span class="code">Toronto, Canada</span></p></li>
+<li class="list"><p class="p"><span class="code">Trondheim, Norway</span></p></li>
+<li class="list"><p class="p"><span class="code">Tuscaloosa, AL</span></p></li>
+<li class="list"><p class="p"><span class="code">Washington, DC</span></p></li>
+<li class="list"><p class="p"><span class="code">Waterloo, Canada</span></p></li>
+<li class="list"><p class="p"><span class="code">York, United Kingdom</span></p></li>
+<li class="list"><p class="p"><span class="code">Zürich, Switzerland</span></p></li>
+</ul></div></div></div>
+<div class="media media-image"><div class="inner"><img src="media/gnome-internet-radio-locator-search.png" class="media media-block" alt=""></div></div>
+</div>
+<section class="links" role="navigation"><div class="inner">
+<div class="hgroup pagewide"></div>
+<div class="contents pagewide"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">More Information</span></h2></div>
+<div class="region"><ul><li class="links ">
+<a href="index.html" title="GNOME Internet Radio Locator 12 for GNOME 41">GNOME Internet Radio Locator 12 for GNOME 41</a><span class="desc"> — GNOME Internet Radio Locator 12 for GNOME 41 lets you locate Internet radio stations around the world.</span>
+</li></ul></div>
+</div></div></div>
+</div></section>
+</div>
+<div class="clear"></div></article><footer><div class="inner pagewide"><div class="about ui-expander" role="contentinfo">
+<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="inner">
+<div class="hgroup"><h2><span class="title">About</span></h2></div>
+<div class="region"><div class="contents">
+<div class="credits">
+<div class="credits-authors">
+<div class="title"><span class="title">Written By</span></div>
+<ul class="credits"><li>Ole Aamot</li></ul>
+</div>
+<div class="credits-blank"></div>
+<div class="credits-blank"></div>
+</div>
+<div class="license">
+<div class="title"><span class="title">License</span></div>
+<div class="contents"><p class="p">This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit <span class="link"><a href="http://creativecommons.org/licenses/by-sa/3.0/" title="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a></span> or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.</p></div>
+</div>
+</div></div>
+</div>
+</div></div></footer>
+</div></main></body>
+</html>

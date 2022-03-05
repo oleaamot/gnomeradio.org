@@ -1,0 +1,133 @@
+--- thesis.tex	2020-05-28 12:54:38.900860562 +0200
++++ thesis.tex~	2020-05-21 17:57:46.217839706 +0200
+@@ -64,7 +64,7 @@
+ \\
+ \\
+ \noindent Oppgaven er et ingeniørarbeid som tok 18 år å fullføre og er dedikert
+-til Oda (musikkterapeut og musiker) og mine to foreldre Gunhild (sykepleier) og
++til Oda (musikkterapeut) og mine foreldre Gunhild (sykepleier) og
+ Helge (ingeniør).
+ \\
+ \\
+@@ -91,8 +91,9 @@
+ \\
+ \noindent Takk også til Ranveig, Anja og Veena, Asgeir, Daniel, Kristian,
+ Arnfinn, Kent, Ståle, Dag og Jan som var svært tålmodige
+-arbeidskolleger i Oslo i 9 år og takk til mine gode venner Tarjei og Håkon Tjønn, John Grande, Ami Niemela, Saga, Mio og Jan Ole Kjellesvig, Hans Petter Jansson, Daniel Mikkelsen, Lars Bungum, Karl-Erik Olausen, Geir Kaaresen,
+-Oskar Nakken, Elnaz Asgari, Petter Reinholdtsen, Vetle Berg Abrahamsen, Janan Anes, Patrick Edvard Antonsen, og Hans Petter Solli, Sigrid Sandkjær, og Oda Bjørke Dypvik.
++arbeidskolleger i Oslo i 9 år og takk til mine gode venner Tarjei,
++John, Ami, Saga, Mio og Jan Ole, Hans Petter Jansson, Daniel, Lars, Karl-Erik, Geir,
++Oskar, Elnaz, Petter, og Hans Petter Solli, Sigrid, Pamila, Tessa og Oda.
+ \\
+ \\
+ Dataprogrammet startet med frie radiosendinger på IMCbra med Elin og
+@@ -104,25 +105,23 @@
+ igjen utviklingen 1. november 2014 og videreutviklingen for GNOME Maps
+ og GStreamer etter mitt besøk på UC Berkeley, i Palo Alto og hos Google
+ i Mountain View i California i august og september 2015 og endte med
+-konklusjonen om at radio er stabiliserende og sosialiserende å lytte
+-til i GNOME Internet Radio Locator for mennesker som var i karantene
+-under Korona-pandemien i verden mellom 12. mars 2020 og 15. juni 2020.
++konklusjon om at radio med musikk (NRK Alltid Klassisk)er bra å lytte
++til i GNOME Internet Radio Locator for mennesker.
+ \\
+ \\
+ \noindent Til slutt stor takk til professor i medisin Astrid Nøklebye Heiberg
+ ved Universitetet i Oslo, førsteamanuensis i arkivvitenskap Thomas
+ Sødring ved Oslo Metropolitan University og programleder Fredrik
+ Solvang i NRK som trodde på prosjektet mitt, samt overingeniør Jon Sverre
+-Dischington Hanssen, ingeniør Vetle Berg Abrahamsen og medstudent 
+-Adrian Szabo Aabech for 9 Volt FM-senderne som Aabech og Abrahamsen bygget på
+-ingeniørhøgskolen høsten 2017 og som fortsatt
++Dischington Hanssen og medstudent Adrian Aabech for 9 Volt FM-senderen
++som Aabech bygget på ingeniørhøgskolen høsten 2017 og som fortsatt
+ sender radio i 30 meter på FM 92.1 MHz.
+ \\
+ \\
+ Med et sterkt ønske om fred og forståelse i verden gjennom radio og utvikling.
+ \\
+ \\
+-\noindent Ole Kr. Aamot (BS EE), Oslo, 28. mai 2020
++\noindent Ole Kr. Aamot (BS EE), Oslo, 26. februar 2020
+ % \include{forord.2019}
+ \newpage
+ Submitted in coherence with Norwegian Education Law
+@@ -229,7 +228,7 @@
+ Television Association i Washington, D.C. den amerikanske
+ radiostasjonen C-SPAN (Cable Satellite Public Affairs Network -
+ \url{http://www.c-span.org/}), som kringkaster forhandlingene i
+-Kongressen (United States House of Representatives) og Senatet (United States Senate) i Washington, District of Columbia, U.S.A.  På tidspunktet da dette ble skrevet foregikk det en riksrettssak mot President Donald J. Trump som først var diskutert i Kongressen og deretter fremmet i Senatet og en virus-pandemi kjent som Korona/COVID-19 som har rammet mennesker i hele verden.
++Kongressen (United States House of Representatives) og Senatet (United States Senate) i Washington, District of Columbia, U.S.A.  På tidspunktet da dette ble skrevet foregikk det en riksrettssak mot President Donald J. Trump som først var diskutert i Kongressen og deretter fremmet i Senatet.
+ 
+ \section*{Prosjektet}
+ Dataskrivebordet GNU Network Object Model Environment (GNOME) ble
+@@ -373,11 +372,10 @@
+ Chapter 32: Source Code in gnome-radio-0.2.0.tar.gz
+ Chapter 33: Software Packages for i386, x86 64 and amd64
+ Chapter 34: References
+-Part V: Software Packages for i386, x86 64 and amd64
+-Part VI: Figures and Layouts
++Part V: Figures and Layouts
+ Chapter 35: Illustrations
+ Chapter 36: Circuits
+-Part VII: Human vs. algorithmic curation of music on radio
++Appendix: Music Intelligence
+ Index
+ \end{verbatim}
+ 
+@@ -1383,6 +1381,23 @@
+ 
+ Debian GNU/Linux, Fedora and Ubuntu software installation packages of
+ GNOME Internet Radio Locator for the computer hardware architectures
++i386, x86\_64 and amd64 are available for download and installation
++as pre-compiled binary packages.
++
++GNOME Internet Radio Locator 3.0.1 for Debian GNU/Linux 10 on Intel 386 is available for download from \url{https://www.gnome.org/~ole/debian/gnome-internet-radio-locator_3.0.1-1_i386.deb}
++
++GNOME Internet Radio Locator 3.0.0 was compiled for Fedora Core 31 on the 64-bit version of the x86 instruction set (x86\_64) developed by Intel and Hewlett Packard and available for download from \url{https://www.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.0.0-1.fc31.x86_64.rpm}
++
++GNOME Internet Radio Locator 3.0.0 was compiled for Ubuntu 19.10 on 64-bit processor architecture amd64 developed by Advanced Micro Devices, Inc. (AMD) and available for download from \url{https://www.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb}
++
++\chapter{References}
++
++\section{gnome-internet-radio-locator.xml}
++
++\lstinputlisting{gnome-internet-radio-locator-3.0.1/src/gnome-internet-radio-locator.xml}
++
++\section{gnome-radio.xml}
++
+ \lstinputlisting{gnome-radio-0.2.0/gnome-radio.xml}
+ 
+ \part{Figures and Layouts}
+@@ -1426,14 +1441,14 @@
+ 
+ \includegraphics[width=1.0\hsize]{loudspeaker.png}
+ 
+-\part{Human vs. algorithmic curation of music on radio}
++\part{Endnote: Human curation vs. algorithmic curation}
+ 
+ In this Bachelor thesis I have advocated for Free Software and human music curation in Free Internet Radio in my thesis.
+ 
+ Google Music and Spotify Radio is using a proprietary software algorithm to select what music to play.  With Google Music and Spotify Radio the user will listen to the same music she has been listening to because the algorithms lack human curation.
+ Apple Music is promoting Beats 1, a human curated, but monopolistic radio station.
+ 
+-Support for human curation from Spotity is discussed in this interview: 
++Support for human curation from
+ https://www.theverge.com/2015/9/30/9416579/spotify-discover-weekly-online-music-curation-interview
+ 
+ \begin{quote}
+@@ -1448,12 +1463,12 @@
+ 
+ Hypothesis
+ 
+-Music on radio shouldn't be curated by a computer algorithm, but by humans.
++Music shouldn't be curated by a computer algorithm, but by humans.
+ 
+ Conclusion
+ 
+ Wrong at times, since it's on a computer, perhaps correct at Trump
+-rallying events, but in the end he will be forgotten on the radio.
++rallying events, but in the end he will be forgotten.
+ 
+ \printindex
+ 

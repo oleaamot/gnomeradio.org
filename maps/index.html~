@@ -1,0 +1,74 @@
+<html>
+  <body>
+    <div id="mapdiv" style="width: 600px; height: 300px"></div>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script>
+      map = new OpenLayers.Map("mapdiv");
+      map.addLayer(new OpenLayers.Layer.OSM());
+      
+      epsg4326 = new OpenLayers.Projection("EPSG:4326"); //WGS 1984 projection
+      projectTo = map.getProjectionObject(); //The map projection (Spherical Mercator)
+      
+      var lonLat = new OpenLayers.LonLat( <? echo $location->longitude; ?> ,<? echo $location->latitude; ?> ).transform(epsg4326, projectTo);
+      
+      var zoom=14;
+      map.setCenter (lonLat, zoom);
+      
+      var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+      
+      
+      <?
+	// print "<table cellspacing=5 cellpadding=5 border=1><tr><th>name</th><th>operator</th><th>last_seen</th><th>latitude</th><th>longitude</th><th>MAC</th></tr>";
+	
+	foreach($keys as $node => $key) {
+      $m = new Mesh;
+      $m->k = $node;
+      foreach($list as $host) {
+      if ($host->k == $m->k) {
+      $m = $host;
+      
+      // echo $m->k;
+      
+      echo "var feature = new OpenLayers.Feature.Vector(
+      new OpenLayers.Geometry.Point( " . $m->longitude . ", " . $m->latitude . ").transform(epsg4326, projectTo),
+      {description:'name:" . $m->name . "<br />operator:" . $m->operator . "<br />MAC:" . $m->mac . "<br />last_seen:" . $m->last_seen . "'} ,
+      {externalGraphic: 'mesh.png', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-5, graphicYOffset:-5 }
+      ); vectorLayer.addFeatures(feature);\n";
+      
+      // print "<tr><td>" . $m->name . "</td><td>" . $m->operator . "</td><td>" . $m->last_seen . "</td><td><a href='?nodes=" . $n . "&lat=" . $m->latitude . "&lon=" . $m->longitude . "'>" . $m->latitude . "</a></td><td><a href='?nodes=" . $n . "&lat=" . $m->latitude . "&lon=" . $m->longitude . "'>" . $m->longitude . "</td><td>" . $m->mac . "</td></tr>\n";
+      }
+      }
+      }
+      ?>
+      
+      map.addLayer(vectorLayer);
+      
+      //Add a selector control to the vectorLayer with popup functions
+      var controls = {
+      selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
+      };
+
+      function createPopup(feature) {
+      feature.popup = new OpenLayers.Popup.FramedCloud("pop",
+      feature.geometry.getBounds().getCenterLonLat(),
+      null,
+      '<div class="markerContent">'+feature.attributes.description+'</div>',
+      null,
+      true,
+      function() { controls['selector'].unselectAll(); }
+      );
+      //feature.popup.closeOnMove = true;
+      map.addPopup(feature.popup);
+      }
+      
+      function destroyPopup(feature) {
+      feature.popup.destroy();
+      feature.popup = null;
+      }
+      
+      map.addControl(controls['selector']);
+      controls['selector'].activate();
+      
+    </script>
+  </body>
+</html>
