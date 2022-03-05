@@ -1,0 +1,1160 @@
+\documentclass[UKenglish]{ifimaster}  %% ... or USenglish or norsk or nynorsk
+\usepackage[utf8]{inputenc}           %% ... or latin1
+\usepackage[T1]{fontenc,url}
+\newenvironment{dedication}
+  {%\clearpage           % we want a new page          %% I commented this
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
+\urlstyle{sf}
+\usepackage{babel,textcomp,csquotes,duomasterforside,varioref,graphicx}
+\usepackage[backend=biber,style=numeric-comp]{biblatex}
+%\RequirePackage{index}
+%\proofmodetrue
+%\newindex{xauthor}{adx}{and}{People}
+%\newindex{xcmds}{cdx}{cnd}{Index of Commands and Concepts}
+\usepackage{biblatex}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{caption}
+\usepackage[formats]{listings}
+\lstloadaspects{formats}
+\usepackage{makeidx}
+\usepackage{courier}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{chicago}
+\bibliography{thesis}
+\inputencoding{utf8}
+\usepackage{xcolor}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+backgroundcolor=\color{backgroundColour},   
+commentstyle=\color{mGreen},
+keywordstyle=\color{magenta},
+numberstyle=\tiny\color{mGray},
+stringstyle=\color{mPurple},
+basicstyle=\footnotesize,
+breakatwhitespace=false,         
+breaklines=true,                 
+captionpos=b,                    
+keepspaces=true,                 
+numbers=left,                    
+numbersep=5pt,                  
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,                  
+tabsize=2,
+language=C
+}
+
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt,frame=bottomline}
+\lstset{
+    language=C, % choose the language of the code
+    frame=single, % adds a frame around the code
+    tabsize=4, % sets default tabsize to 2 spaces
+    rulesepcolor=\color{gray}
+}
+
+\author{Ole Kr. Aamot}
+\title{
+ Public Audio Recording Software for Recording World Sounds\\\\
+ \begin{large}\\
+ \\
+ \\
+ \\
+   GNOME Gingerblue (gingerblue)\\
+ \\
+   \url{http://www.gingerblue.org/thesis.pdf}
+  \end{large}
+}
+\title{\\GNOME Gingerblue 2.0.1}
+
+\noindent\begin{small}AAMOT\,\ OLE\ 1978\-02\-20\ UNIVERSITY\ OF\ OSLO\ 2022\-02\-15\ BSc PHYS\end{small}\\
+\noindent\begin{small}Public Audio Recording Software for Recording World Sounds\end{small}\\
+\noindent\begin{small}GNOME Gingerblue (gingerblue) version 2.0.1 (20211025)\end{small}\\
+\noindent\begin{small}http://www.gingerblue.org/thesis.pdf\end{small}
+
+\author{Ole Kristian Aamot}
+\date{15 February 2022}
+
+\begin{document}
+\duoforside[dept={Department of Physics},   %% ... or your department
+  program={Electrical Engineering, Informatics and Technology},  %% ... or your programme
+  short]                                        %% ... or long
+
+\frontmatter{}
+%.
+%.
+%.
+%.
+\mainmatter
+\chapter*{Abstract}                   %% ... or Sammendrag or Samandrag
+\noindent In this thesis I wrote Free Audio Recording Software for GTK+/GNOME.\\
+
+GNOME Gingerblue is Free Software available under GNU General Public
+License version 3 (or later) that supports immediate audio recordings in
+compressed Ogg Vorbis (\url{VORBIS.COM}) encoded audio files stored in
+the $\$HOME/Music/$ folder from the line input on a computer or remote
+audio cards through USB connection through PipeWire
+(\url{PIPEWIRE.ORG}) and WirePlumber
+(\url{https://gitlab.freedesktop.org/pipewire/wireplumber}) Session
+Manager via the GStreamer (\url{GSTREAMER.FREEDESKTOP.ORG})
+\begin{tt}record\_pipe\end{tt} API.\\
+
+Multiple-Location Audio Recording 1.0 is specified for recording
+multiple-location audio recording configurations into Ogg Vorbis
+(\url{VORBIS.COM}) compressed audio files (\url{XIPH.ORG}) in the Free
+Software GNU autoconf (\url{GNU.ORG}) package GNOME Gingerblue 2.0.1
+(\url{GINGERBLUE.ORG}) available under GNU General Public License
+version 3 or later.\\
+
+The Multiple-Location Audio Recording 1.0 Specification will be
+implemented in GNOME Gingerblue 2.0.1 in ANSI C and available from
+\url{http://WWW.GINGERBLUE.ORG/src/gingerblue-2.0.1.tar.xz} with
+Source and Installation Packages for Fedora Core 35
+(\url{FEDORAPROJECT.ORG}) and Ubuntu 21.04 (\url{UBUNTU.COM}).\\
+
+The Source and Installation packages of GNOME Gingerblue 2.0.1 were
+tested for recording on a Hewlett Packard laptop computer and the
+MacPorts Installation package of 2.0.1 worked on Apple MacBook Air 2020
+(M1) with macOS 11.6 Big Sur..\\
+
+The Apple/HP-tested Source package of GNOME Gingerblue 2.0.1 is available from
+\url{http://DOWNLOAD.GNOME.ORG/sources/gingerblue/2.0/gingerblue-2.0.1.tar.xz} and a Binary package is available for MacPorts (\url{https://www.macports.org/}) on Apple macOS (\url{https://ports.macports.org/port/gingerblue/}):
+
+\begin{verbatim}
+sudo port install gingerblue
+\end{verbatim}
+
+\chapter*{Software Implementation}
+
+\noindent The implementation of the Multiple-Location Audio Recording
+1.0 Specification (``as-is'') was completed (``as-of'') on October
+25th, 2021 in C as specified in The C programming
+language ({Kernighan/Ritchie, 1978}) after 21 months of work that began
+on July 4th, 2018 as GNOME Gingerblue.\\
+
+\noindent \textbf{Source Code}
+
+\begin{itemize}
+\item \url{http://www.gingerblue.org/src/gingerblue-2.0.1.tar.xz}
+\item \url{https://download.gnome.org/sources/gingerblue/2.0/gingerblue-2.0.1.tar.xz}
+\end{itemize}
+
+\noindent \textbf{Fedora Core 35}
+
+\begin{itemize}
+\item \url{https://www.gingerblue.org/~ole/fedora/RPMS/x86_64/gingerblue-2.0.1-1.fc35.x86_64.rpm}
+\item \url{https://www.gingerblue.org/~ole/fedora/RPMS/x86_64/gingerblue-debuginfo-2.0.1-1.fc35.x86_64.rpm}
+\item \url{https://www.gingerblue.org/~ole/fedora/RPMS/x86_64/gingerblue-debugsource-2.0.1-1.fc35.x86_64.rpm}
+\item \url{https://www.gingerblue.org/~ole/fedora/SRPMS/gingerblue-2.0.1-1.fc35.src.rpm}
+\end{itemize}
+
+\noindent \textbf{Ubuntu 21.04}
+
+\begin{itemize}
+\item \url{https://www.gingerblue.org/~ole/ubuntu/gingerblue_2.0.1-1_amd64.deb}
+\item \url{https://www.gingerblue.org/~ole/ubuntu/gingerblue_2.0.1-1.debian.tar.xz}
+\item \url{https://www.gingerblue.org/~ole/ubuntu/gingerblue_2.0.1-1.dsc}
+\item \url{https://www.gingerblue.org/~ole/ubuntu/gingerblue_2.0.1-1_amd64.buildinfo}
+\item \url{https://www.gingerblue.org/~ole/ubuntu/gingerblue_2.0.1-1_amd64.changes}
+\item \url{https://www.gingerblue.org/~ole/ubuntu/gingerblue_2.0.1.orig.tar.xz}
+\end{itemize}
+
+\tableofcontents{}
+
+\mainmatter{}
+
+\chapter*{Introduksjon}                    %% ... or Introduksjon
+
+I den første implementasjonen av grafisk lydopptaksprogramvare for
+Multiple-Location Audio Recording, applikasjonen GNOME Gingerblue
+versjon 2.0.1, som en applikasjon utgitt under åpen kildekode-lisens,
+kan vi reprodusere lydbølger i det hørbare spekteret for menneskelige
+lydopptak og lytting med tid-rom-frekvens notasjon i programmeringsspråket C ({Kernighan/Ritchie, 1978}).\\
+
+Vi benytter prinsippene for å prosessere signalene som er motivert av
+de prosessene som er involvert i lytting.\\
+
+En representasjon av lydsignalene hvor vi har tilgang til både tid
+og frekvensinformasjonen er et godt motivert valg.\\
+
+Tids- og frekvensdomenet er et sånt domene, og det er vanligvis valgt
+i lydsignalprosessering.\\
+
+Vi ønsker imidlertid å legge til de ekstra funksjonene til
+domenenavnsystemet med DNS-informasjon om vertsdatamaskinen for å
+kommentere den fullstendige stedsrepresentasjonen med den unike
+tid-rom-frekvensdomenerepresentasjon av hele lydsignalet i
+Multiple-Location Audio Recording, motivasjonen i denne oppgaven.\\
+
+``Å fremføre et dataprogram'' er å gjøre et lydopptak av et direktesendt radioprogram på en datamaskin ved hjelp av et direktesendt radioprogram og et lydopptaksprogram utviklet i programmeringsspråket C på en datamaskin.\\
+
+Radiobølgene resonneres og beskrives logisk ved hjelp av dataprogrammene som kan kompileres i GCC og utføres på en datamaskin med GNU/Linux i begge oppgavene mine.\\
+
+Opptak av Internet-radio forklarer jeg logisk i en Bachelor-oppgave gjennom radioprogrammet GNOME Internet Radio Locator (\url{http://www.gnomeradio.org/}) implementert for datamaskiner i programmeringsspråket C (\url{http://www.oleaamot.no/omu/bachelor/Aamot,2020.pdf}), gjennom lydopptaksprogrammet GNOME Gingerblue (\url{http://www.gingerblue.org/}) implementert for datamaskiner i programmeringsspråket C for det grafiske skrivebordsmiljøet GNOME (\url{http://www.gnome.org/}) beskrevet i denne oppgaven (\url{http://www.oleaamot.no/uio/bachelor/Aamot,2022.pdf}) og i en Bachelor-oppgave om GNOME Voice (\url{http://www.oleaamot.no/ntnu/bachelor/Aamot,2024.pdf}) med planlagt leveranse 24. juni 2024 ved NTNU.\\
+
+Takk til Professor Sverre Holm ved Fysisk institutt, Universitetet i
+Oslo og Dr. Wolfgang Leister ved Norsk Regnesentral som motiverte meg
+til å skrive dataprogrammene GNOME Internet Radio Locator
+(\url{http://www.gnomeradio.org/}) og GNOME Gingerblue
+(\url{http://www.gingerblue.org/}) etter at jeg fulgte seminarene
+Multimedia Coding and Transmission og Multimedia Coding and
+Applications ved Norsk Regnesentral (\url{http://www.nr.no/}) i 2004
+som senere ble til INF5080 og INF5081 ved Institutt for informatikk (\url{http://www.ifi.uio.no/}) ved Universitetet i Oslo (\url{http://www.uio.no/}).\\
+
+Jeg ønsker helt til slutt å takke førsteamanuensis Arnt Inge Vistnes
+som har hjulpet meg mye på veien som Bachelor-student som foreleser om
+svingninger og bølger i FY-ME100 våren 2002 og senere emne FYS2130 ved
+Fysisk Institutt ved Universitetet i Oslo, Knut Tomren og Tarald
+Rørvik for interesse og oppmuntring, Inger Johanne Seielstad Haugli og
+min tante Astrid Hanken som utvidet min interesse for lydopptak, og
+min utholdende og alltid oppofrende, kjærlige Mor Gunhild Humblen og
+stødige, vennlige Far Helge Aamot som gav meg min første
+kassettopptaker Julen 1985 og albumet ``Face Another Day'' med The
+Monroes på magnetbånd (Compact Cassette).\\\\
+
+Endelig kan vi gjøre kontinuerlig, grafisk lydopptak under GStreamer til
+lagring på solid-state drive (SSD) på en moderne datamaskin med fri Unix
+som Ubuntu 21.04, Fedora 35 og macOS 11.6.\\\\
+
+Du kan følge prosjektene på \url{http://www.gingerblue.org/} og
+\url{http://wiki.gnome.org/Apps/Gingerblue} i videre utvikling.\\\\\\\\
+
+\noindent Ole Kristian Aamot, Oslo, 15. februar 2022
+
+\chapter*{Preface}                    %% ... or Forord
+
+In the first Multiple-Location Audio Recording Software
+implementation, the Free Software application GNOME Gingerblue version
+2.0.1, as a free purpose application, we can reproduce hearable sounds
+for human listening with time-space-frequency notation.
+
+We use the principles in the processing of signals that are motivated
+by the processes involved in hearing.
+
+A representation of audio signals where we have access to both time
+and frequency information is a well-motivated choice.  The
+time-frequency domain is such a domain, and it is commonly deployed
+in audio processing.
+
+However, we want to add the extra capabilities of the Domain Name System
+information to annotate the full location representation with the unique
+time-space-frequency domain representation of the full audio signal in
+Multiple-Location Audio Recording, the motivation in this thesis.
+
+\part{Introduction}                   %% ... or Innledning or Innleiing
+
+\chapter{Background}                  %% ... or Bakgrunn
+
+Communication in modern day society has been greatly enhanced by mans
+ability to reproduce sound.  Inventions such as telegraph, telephone,
+phonograph, gramophone, radio, and later, television have benefited
+from the basic concept of reproduction and preservation of the human
+voice.  The act of recording therefore is best comprehended within the
+context of broadcasting, telecommunication, and entertainment. ({Nmungwun, 1989})
+
+The medium of recording rely on two components that have been the very
+essence of the recording technology - magnetism and electricity.
+\part{The project}                    %% ... or ??
+
+\chapter{Planning the project}        %% ... or ??
+
+\maketitle
+\title{Multiple-Location Audio Recording 1.0}
+\chapter{Historic Notes}
+\section{History of Recording}
+
+Up to the end of the 1700s, scientists had fruitlessly worked to
+establish a relationship between electricity and magnetism.
+
+In 1820, Hans Christian Ørsted, a professor at University of
+Copenhagen, discovered, as mentioned in the 200 year later
+non-peer-reviewed article ``Radio flux in GNOME Radio Fields
+confirmed'', Aamot, Oslo Metropolitan University, 2020 --
+DOI: 10.13140/RG.2.2.17889.33124 --
+\url{http://www.gnomeradio.org/~ole/Aamot-2020.pdf}) and the Bachelor
+thesis in Electrical Engineering (``Public Internet Radio Client for
+Accessing Free Audio Maps in Countries with Free Speech'', Aamot, Oslo
+Metropolitan University, 2020 -- DOI: 10.13140/RG.2.2.31344.17922 --
+\url{http://www.gnomeradio.org/~ole/thesis.pdf}), that when an
+electric current is passed through a wire held horizontally above a
+magnetic needle that is parallel to it, the needle is deflected,
+positioning itself at right angles with the conducting wire to the end
+of the positive pole of the magnet.
+
+A wire that has a constant source of electricity passed through it
+becomes practically a magnet.
+
+The tin-foil phonograph was discovered accidentally by Edison.  While
+busy experimenting on a telegraphic machine (intented to repeat Morse
+characters recorded on paper by indentations that transferred
+messages to another circuit automatically, he stumbled upon the idea
+that resulted in the phonograph.
+
+In examining the indented paper, Edison noticed the speed at which it
+moved, and a humming noise that amanated from the indentation.  This
+sound was a severe rhythm almost identical to human speech hear
+faintly.
+
+In order to decipher this sound, Edison fitted a diaphragm to the
+machine.  This also acred to amplify the sound.  It was then obvious
+that the problem of recording human speeches and reproducing them by
+mechanical means was solved.
+
+Edison proceeded to develop a machine exclusively for capturing the
+vibrations of the human voice as well as repeating them at a latter
+time.  The machine was christened the ``phonograph'' (see Fig 1.).  In
+November 1877, Edison officially announced his invention and on
+December 24, 1877, he filed a patent application for the phonograph
+with the U.S. Patent Office.  This was duly approved as patent number
+200,521, issued on February 19, 1878, minus one century and one day
+before February 20, 1978 (my birth date).
+
+The tin-foil phonograph was built by John Kruesi, who had worked with
+Edison for several years.  Edison had only given a rough sketch of
+the phonograph to Kruesi, explaining what its functions were to be.
+It was a cylinder machine, with the cylinder covered with tin-foil for
+recording purposes.  When Kruesi concluded work on the machine and
+brought it to Edison, he set it in motion and spoke into it:
+
+``Mary had a little lamb,
+It's fleece was white as snow.
+And everywhere that Mary went,
+The lamb was sure to go.''
+
+When rewound, his exact words in clear tones were repeated, contrary
+to the hoarse murmur that he anticipated, Edison was baffled at the
+performance of the little machine.
+
+Professor Joseph Henry (1797-1878) was a professor of physics at
+Albany Institute whose work integrated the principles that are so much
+inevitable in modern day electronics including phonographs, radio,
+television and hi-fi in relation to electricity, magnetism and
+mechanical energy.
+
+Henry's theory was the basis for Morse's telegraph, Bell's telephone
+and other modern sound-producing mechanisms.
+
+His principles enabled Valdemar Poulsen to record the first sound on a
+magnetized steel wire.
+
+In 1918 a Californian, Leonard F. Fuller, had proposed the
+Telegraphone wire recorder. ({BIOS, 1961})
+
+In 1927, two U.S. Navy Research Laboratories staff members were
+granted a U.S. patent for their invention, which involved the
+application of high frequency (A.C.) bias to steel wire to enhance
+sound reproduction.
+
+Another Californian, James H. Alverson, proposed the use of radio
+frequency to saturate steel wire in magnetic recording.  It was also
+apparent that research on A.C. bias, and its use, was done under Kenzo
+Nagai in Japan in the 1930s.
+
+Three Bachelor of Science Theses written on the subject at
+Massachusetts Institute of Technology in 1938 testify that magnetic
+recording generated much curiosity in the late 1930s, especially in
+academical circles.
+
+By the end of October 1939 the situation had improved, with a
+reduction in the use of gramophone records and more variety.
+
+The development of radio news from Dunkirk to the end of the war can
+be thought of in two parts.  The period up to D-Day and the invasion
+of France in June 1944, and the rest of the war, which was then
+dominated in news terms by the BBC's War Report, which provided a
+day-by-day account of the final year of the war and eventual Allied
+victory.  News can probably claim to be the most innovative and
+successful part of BBC output at that time: ``the BBC News Department
+ended the war with the most enhanced reputation and changed role of
+any wartime BBC Department...''.  It began the war with just two
+reports and recording equipment that required a six-ton van and had a
+top speed of 20 miles per hour and ended it with coordinated coverage
+of D-Day, ``a superb journalistic achievement'', with 19 reporters
+using portable disc recorders and live relays heard by an audience
+that reached 18 million.  There are different components of this great
+transformation and these include not only improved recording
+technology but the creation of a News Division, incorporating home and
+empire News and Talks, under A. P. Ryan in September 1942.
+
+It was not until April 1946 that WMAQ, (an NBC affiliate in Chicago)
+aired the first completely wire-recorded news program, followed by a
+competitor, WBBM (a CBS Chicago affiliate), which also deployed wire
+recording for both spot-reporting and news events.
+
+The precendent set, most network and local stations proceeded to
+record their news programs on wire recorders.
+
+In 1951, while still enjoying the fortune magnetic tape recording
+implemented in audio and data recording to the recording of television
+signals.
+
+In 1951 all sound recording was on disc, but in 1952 there were six
+EMI Midget recorders at Brodcasting House.
+
+Ray Dolby, (later of audio noise reduction fame) was an exceptionally
+brilliant 19-year-old high school graduate who had enrolled as an
+engineering freshman at Stanford University.  Dolby dropped out of
+college to join the Ampex team in August 1952.
+
+Allthough Dolby lacked the necessary academic training in engineering,
+his ingenuity and understanding of technical matters made his
+contributions in the Ampex television recording project invaluable.
+It was Dolby who created the basic block diagram of VTR circuitry that
+is still implemented in the most recorders today.
+
+As promising as the early efforts were, the project was again
+suspended in June 1953.  In the midst of the frustration, Dolby, who
+had dropped out of Stanford, was drafted into the U.S. Army and
+despite friutless pleas by his colleagues he left sadly on March 18,
+1953.
+
+While he was in the Armed Forces, Dolby exchanged notes with Ginsburg.
+During the project's period of official suspenson (June 1953 through
+August 1954), considerable progress was made on the VTR project
+despite the few man hours and the little financial allotment assigned
+it, both by authorized and unauthorized means.
+
+By 1955 tape had largely replaced the disc.  The impact of tape
+recording on early current affairs broadcasting was slow to have
+effect but it had the potential to solve many ``supply'' problems.
+
+\section{History of Computing}
+
+The Internet was not the creation of a single person.
+
+It was the product of engineers and inventors, researchers and programmers,
+and many more.  Internet prehistory was an age of ideas, and many thinkers
+contributed visionary dreams that shaped what the Internet could and would
+come to be.
+
+Here are some of the pioneers:
+
+\subsection{Vannevar Bush and his ``memex''}
+
+Vannevar Bush was a professor in the Department of Electrical
+Engineering at MIT, an influential policymaker and head of the
+Carnegie Foundation, and a presidential science advisor who pushed for
+government support for science.
+
+A prolific inventor, he also designed and constructed the Differential
+Analyzer, a mechanical yet sophisticated calculating device.
+
+His 1945 ``memex'' idea foresaw how computing would allow humanity
+better access to information.
+
+\subsection{Claude Shannon and information theory}
+
+Claude Shannon is regarded as the father of information theory.  A
+1930s graduate of MIT's Master of Science and Ph.D. program, Shannon
+assisted researchers with the Bush Differential Analyzer while he
+completed his studies.  His astonishing realization that information
+of any kind could be expressed mathematically in bits--represented by
+a single zero or one--formed the basis for digital computing.
+
+\subsection{J.C.R. Licklider and networks}
+
+J.C.R. Licklider was associated with MIT and MIT's Lincoln Laboratory
+for more than thirty years.
+
+His articles ``The Computer as a Communication Device'' (1968) and
+``Man-Computer Symbiosis'' (1960) described how interactive, networked
+computers could be used for human communication, and predicted many
+uses of the modern Internet.  Licklider's ideas and leadership led to
+the ARPANET (Advanced Research Projects Agency Network), an early
+computer network that was the original Internet.
+
+\subsection{Bardeen/Shockley/Brattain and the transistor}
+
+In 1956 Bell Labs scientists John Bardeen, William Shockley and Walter
+Brattain shared the Nobel Prize in physics for their invention of the
+transistor, a major payoff of the wartime semiconductor work,
+according to Robert Buderi's book ``The INVENTION That CHANGED the
+WORLD'' (Simon & Schuster, New York, 1996).
+
+The three met just after World War II, when Bell Labs charged Shockley
+with the job of building a solid state amplifier.
+
+The Magic Month, actually a five-week span that saw the birth of the
+transistor and the genesis of two Nobel Prizes, opened on November 17, 1947.
+
+Walter Brattain had been purusing the team's goal of building the base of
+fundamental knowledge and testing the surface-state theory.
+
+On November 22, 1947, the Saturday before Thanksgiving, John Bardeen summarized much of the work while filling seven pages in his notebook.  He concluded, ``...these tests show definitely that it is possible to introduce an electrode or grid to control the flow of current in a semiconductor.''
+
+In December 1956 the Nobel Prizes in Physics were granted to the Bell Labs colleagues Bardeen, Brattain and Shockley.
+
+\subsection{Tim Berners-Lee and the Web}
+
+In 1989 Tim Berners-Lee, Professor at MIT's Computer Science and
+Artificial Intelligence Laboratory, invented the World Wide Web
+at the CERN Lab in Switzerland and directed his work toward the
+W3C Consortium (\url{http://www.w3.org/}), the Web Research Institute
+and the World Wide Web Foundation.
+
+These organizations study the future use and design of the Web, make
+recommendations about technical standards, and implement projects
+designed to realize the full potential of the World Wide Web.
+
+\subsection{Philippe Defert and httpd}
+
+Philippe Defert (1954 - 2013) working at the CERN IT Department in
+Switzerland made it possible through his work on the httpd server to
+publish widespread information to reach millions of people like AM/FM
+radio previously did, but without global censorship, except by
+ICANN.org, by decentralized domain name registrars and individual
+domain holders.
+
+\section{History of Domain Name System}
+
+Paul Mockapetris expanded the Internet beyond its academic origins
+by inventing the Domain Name System (DNS) in 1983.
+ 
+Previously computers connected to the Internet were addressed with
+IP addresses, not resolvable by domain names.
+
+But the invention of the DNS in 1983 and the original Internet
+Standards in 1986 after the creation of the Internet Engineering Task
+Force IETF made this possible.
+
+The two documents that marked the start are RFC 1034 and RFC
+1035. They describe the whole protocol functionality and include data
+types that it can carry.
+
+The latest version of the Internet software Berkeley Internet Name
+Domain 9 (``bind'' and ``named'') by the Internet Software Consortium
+helped bring the Domain Name System to the entire world in 2000.
+
+\chapter{Hardware}
+
+Legitimate audio can be originated in a number of ways.  Until recent
+advances in digital technology, a musician's options were limited to
+getting low-grade audio from distant sources or filing reports on
+location over ordinary telephones, or travelling to and from the
+location with a microphone, lead and portable tape recorder, most
+commonly a Uher.  Despite the great weight of the Uher, whose strap
+gave so many reporters shoulder strain, it is fondly remembered for
+the acceptable compromise it represented between ease of use,
+broadcast quality and portability.  But many have welcomed the later
+generations of hardware, including Digital Audio Tape (DAT), MiniDisc
+and hard disk recorders.  For ease of use, portability and
+concealability (in situations where, for reasons of personal safety,
+musicians might prefer to blend into their surroundings), the recent
+developed microphones that record on to a chip housed within their own
+stem, and an associated USB port for downloading the audio as data
+into any computer, are attrative alternatives.
+
+Digital technology has also facilitated the establishment of live
+connections between the news desk and remote locations.  Expensive,
+fixed, broadcast-quality analogue landlines and often hard-to-set-up
+VHF radio links from outside broadcast vehicles have, for the moment,
+been eclipsed by ISDN lines, which deploy digital/analogue converters
+(codecs), satellite uplinking and the Internet.
+
+\chapter{Software}
+
+\section{World Wide Web}
+
+The release of Apache HTTP Server (\url{http://httpd.apache.org/}) by
+the Apache Software Consortium and the release of PHP Programming
+Language (\url{https://www.php.net}) and Wordpress Weblog Software
+(\url{https://www.wordpress.org/}) is essential in human's ability to
+reach millions of people on the World Wide Web.
+
+\section{GNOME}
+
+The release of the GNOME desktop software in 1997 made it possible for
+humans to interactively access and store information on a computer.
+
+\section{GStreamer, PipeWire and WirePlumber}
+
+The release of the GStreamer software in 2004 marked the future
+for multimedia on GNU/Linux and other desktop platforms running
+GNOME.
+
+Control flow in the program is determined by conditional statements.
+The outcome of such tests controls the further flow of the program.
+
+GStreamer is the software for audio recording and playback, signaling
+and control in Free Desktops such as GNOME.
+
+For example, by using conditional statements, control function values
+can be reset and instruments can turn themselves on or off or be
+instructed to influence one another.
+
+\section{GNOME Gingerblue}
+
+GNOME Gingerblue completes the task of recording live audio streams on
+any computer that runs a Unix-compatible GNU system with the Linux
+kernel or a Apple macOS system with Macports.org and lets you
+recording/download audio into a laptop that can be edited on the site,
+saved as an Ogg Vorbis with XML meta data information, and perhaps
+using other developments in mobile phone technology, sent over the
+Internet in a fraction of the time it once took musicians to return to
+base and then edit it using traditional techniques.
+
+GNOME Gingerblue 2.0.1 is available and builds/runs on GNOME 41
+systems such as Fedora Core 35.
+
+It supports immediate, live audio recording in compressed Xiph.org Ogg
+Vorbis encoded audio files stored in the private $\$HOME/Music/$
+directory from the microphone/input line on a computer or remote audio
+cards through USB connection through PipeWire
+(\url{http://WWW.PIPEWIRE.ORG/}) with GStreamer
+(\url{http://GSTREAMER.FREEDESKTOP.ORG/}) on Fedora Core 34
+(\url{https://GETFEDORA.ORG/}).
+
+In GNOME Gingerblue version 2.0.1, the first implementation of
+Multiple-Location Audio Recording, as published in the thesis, audio
+and control rates are implemented by separate loops.
+
+When composing with the computer, sounds are recorded digitally with a
+sampling rate of at least 40,000 Hz and an amplitude resolution of at
+least 16 bits.
+
+The audio signals recorded with GNOME Gingerblue version 2.0.1 have a
+sample rate of 44,100 Hz.
+
+See the GNOME Gingerblue project (\url{https://WWW.GINGERBLUE.ORG/})
+for screenshots, Fedora Core 34 x86\_64 RPM package and GNU autoconf
+installation package
+(\url{https://DOWNLOAD.GNOME.ORG/sources/gingerblue/2.0/gingerblue-2.0.1.tar.xz})
+for GNOME 41 systems and
+\url{https://GITLAB.GNOME.ORG/ole/gingerblue.git} for the GPLv3 source
+code in my GNOME Git repository.
+
+{\includegraphics[scale=3.0]{gingerblue-140-001.png}}
+
+Gingerblue music recording session screen. Click “Next” to begin session.
+
+{\includegraphics[scale=3.0]{gingerblue-140-002.png}}
+
+The default name of the musician is extracted from g\_get\_real\_name(). You can edit the name of the musician and then click “Next” to continue ((or “Back” to start all over again) or “Finish” to skip the details).
+
+{\includegraphics[scale=3.0]{gingerblue-140-003.png}}
+
+Type the name of the musical song name. Click “Next” to continue ((or “Back” to start all over again) or “Finish” to skip any of the details).
+
+{\includegraphics[scale=3.0]{gingerblue-140-004.png}}
+
+Type the name of the musical instrument. The default instrument is “Guitar”. Click “Next” to continue ((or “Back” to start all over again) or “Finish” to skip any of the details).
+
+{\includegraphics[scale=3.0]{gingerblue-140-005.png}}
+
+Type the name of the audio line input. The default audio line input is “Mic” ( gst\_pipeline\_new("record\_pipe") in GStreamer). Click “Next” to continue ((or “Back” to start all over again) or “Finish” to skip the details).
+
+{\includegraphics[scale=3.0]{gingerblue-140-006.png}}
+
+Enter the recording label. The default recording label is “GNOME” (Free label). Click “Next” to continue ((or “Back” to start all over again) or “Finish” to skip the details).
+
+{\includegraphics[scale=3.0]{gingerblue-140-007.png}}
+
+Enter the Computer. The default station label is a Fully-Qualified Domain Name (g\_get\_host\_name()) for the local computer. Click “Next” to continue ((or “Back” to start all over again) or “Finish” to skip the details).
+
+{\includegraphics[scale=3.0]{gingerblue-140-008.png}}
+
+Notice the immediate, live recording file.  The default immediate, live recording file name falls back to the result of\\
+g\_strconcat(g\_get\_user\_special\_dir(G\_USER\_DIRECTORY\_MUSIC), "/",\\
+gtk\_entry\_get\_text(GTK\_ENTRY(musician\_entry)),\\
+"\_-\_", gtk\_entry\_get\_text(GTK\_ENTRY(song\_entry)),\\
+"\_[",g\_date\_time\_format\_iso8601 (datestamp),"]",".ogg",\\
+NULL) in gingerblue/src/gingerblue-main.c
+
+{\includegraphics[scale=3.0]{gingerblue-140-009.png}}
+
+Studio configuration resolves the server address of your local computer.
+
+{\includegraphics[scale=3.0]{gingerblue-140-010.png}}
+
+Album configuration is the playlist of the compilation of multiple audio files.
+
+{\includegraphics[scale=3.0]{gingerblue-140-011.png}}
+
+Broadcasting to the World Wide Web (a Wordpress Webblog installation)
+is the step after recording your audio files.
+
+Click on “Cancel” once in GNOME Gingerblue to stop immediate recording and click on “Cancel” once again to exit the application (or Ctrl-c in the terminal).
+
+\newpage
+
+The following Multiple-Location Audio Recording XML file [.gingerblue] is created in G\_USER\_DIRECTORY\_MUSIC (usually $\$HOME/Music/$ on American English systems):
+
+\begin{scriptsize}
+\begin{verbatim}
+  <?xml version='1.0' encoding='UTF-8'?>
+  <gingerblue version='2.0.1'>
+    <musician>Wilber</musician>
+    <song>Gingerblue Track 0001</song>
+    <instrument>Piano</instrument>
+    <line>Mic</line>
+    <label>GNOME Music</label>
+    <station>streaming.gnome.org</station>
+    <filename>/home/wilber/Music/Wilber_-_Song_-_2021-07-12T21:36:07.624570Z.ogg</filename>
+  </gingerblue>
+\end{verbatim}
+\end{scriptsize}
+
+You’ll find the recorded Ogg Vorbis audio files along with the Multiple-Location Audio Recording XML files in\\
+g\_get\_user\_special\_dir(G\_USER\_DIRECTORY\_MUSIC) (usually $\$HOME/Music/$) on GNOME 41 systems configured in the American English language.
+
+In GNOME Gingerblue version 2.0.1, the first implementation of
+Multiple-Location Audio Recording, as published in the thesis, audio
+and control rates are implemented by separate loops.
+
+When composing with the computer, sounds are recorded digitally with a
+sampling rate of at least 40,000 Hz and an amplitude resolution of at
+least 16 bits.
+
+The audio signals recorded with GNOME Gingerblue version 2.0.1 have a
+sample rate of 44,100 Hz and are stored in the $\$HOME/Music/$ folder.
+
+\chapter{Internet}
+\section{Apache HTTP}
+
+The Apache HTTP server is available for Unix-platforms such as Debian,
+Fedora and Ubuntu from \url(http://httpd.apache.org/}
+
+\section{PHP}
+
+The programming language PHP is available from \url{http://www.php.net/} and is availble as a
+Apache module for the Apache HTTP Server \url{http://httpd.apache.org/}.
+
+\section{Wordpress}
+
+The World Wide Web Blog software Wordpress is available from \url{http://www.wordpress.org/}
+
+\chapter{Source}
+\section{gingerblue 2.0.1}
+
+\lstset{ numbers=left, stepnumber=1, firstnumber=1, numberfirstline=true }
+
+\subsection{gingerblue-2.0.1/src/gingerblue-chord.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-chord.h}
+
+\end{scriptsize}
+    
+\subsection{gingerblue-2.0.1/src/gingerblue-config.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-config.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-file.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-file.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-knob.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-knob.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-line.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-line.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-main.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-main.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-main-loop.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-main-loop.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-record.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-record.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-song.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-song.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-studio-config.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-studio-config.h}
+
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-studio-stream.h}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-studio-stream.h}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-app.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-app.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-config.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-config.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-file.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-file.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-knob.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-knob.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-line.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-line.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-main.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-main.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-main-loop.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-main-loop.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-record.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-record.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-song.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-song.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-studio-config.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-studio-config.c}
+  
+\end{scriptsize}
+
+\subsection{gingerblue-2.0.1/src/gingerblue-studio-stream.c}
+
+\begin{scriptsize}
+  
+  \lstinputlisting[format=C]{gingerblue-2.0.1/src/gingerblue-studio-stream.c}
+  
+\end{scriptsize}
+
+\chapter{Specification}
+
+GNOME Gingerblue 2.0.1 is specified with the Gingerblue XML meta data.
+
+\chapter{Multiple-Location Audio Recording 1.0}
+
+\section{Gingerblue XML Data Structure}
+
+\noindent The Gingerblue XML data structure contains a ``<gingerblue>'' XML root
+node, with ``<musician>'', ``<song>'', ``<instrument>'', ``<line>'',
+``<label>'', ``<station>'', ``<filename>'', ``<album>'' and
+``<studio>'' subnodes.
+
+\subsection{Example}
+
+\begin{tiny}
+\begin{verbatim}
+<?xml version='1.0' encoding='UTF-8'?>
+
+<gingerblue version='2.0.1'>
+  <musician>Root</musician>
+  <song>Song</song>
+  <instrument>Guitar</instrument>
+  <line>Mic</line>
+  <label>GNOME</label>
+  <station>localhost</station>
+  <filename>Song.ogg</filename>
+  <album>GNOME</album>
+  <studio>file://localhost/</studio>
+</gingerblue>
+\end{verbatim}
+\end{tiny}
+
+\section{Gingerblue XSPF Playlist}
+
+The Gingerblue Playlist is a subset of XSPF stored default in
+\url{$HOME/Music/GNOME.xspf} with a reference to the most current
+audio recording.
+
+XPSF (``Spiffy'') was specified by Xiph.org and the specification is
+available from \url{http://www.xpsf.org/}
+
+\subsection{Example}
+
+\begin{tiny}
+\begin{verbatim}
+<?xml version=''1.0'' encoding=''UTF-8''?>
+<playlist version=''1'' xmlns=''http://xspf.org/ns/0/''>
+  <trackList>
+    <track>
+      <title>Song_-_2021-10-26T04:39:15Z</title>
+      <location>file://perceptron.stream//Users/wilber/Music/Wilber_-_Song_-_2021-10-26T04:39:15Z.ogg</location>
+    </track>
+  </trackList>
+</playlist>
+\end{verbatim}
+\end{tiny}
+
+\section{Gingerblue HTML 1.0 Document}
+
+\subsection{Example}
+
+\begin{tiny}
+\begin{verbatim}
+<html>
+  <head>
+    <title>Wilber - Song</title>
+  </head>
+  <body>
+    <h1>Wilber</h1>
+    <h2><a href='http://wiki.gnome.org/Apps/Gingerblue'>Gingerblue 2.0.1</a></h2>
+    <p>
+      <a href='/home/wilber/Music/Wilber_-_Song_[2021-11-22T21:33:00].ogg'>/home/wilber/Music/Wilber_-_Song_[2021-11-22T21:33:00].ogg</a>
+      (Ogg Vorbis, 44.1kHz, Mono)
+    </p>
+    <p>XSPF: <a href='/home/wilber/Music/GNOME.xspf'>/home/wilber/Music/GNOME.xspf</a></p>
+  </body>
+</html>
+\end{verbatim}
+\end{tiny}
+
+\part{Conclusion}                     %% ... or Konklusjon
+
+GNOME Gingerblue 2.0.1 can be configured and compiled with the GNU C
+Compiler (\url{GCC.GNU.ORG}), GNU Autoconf and GNU Automake on macOS
+11.6 with MacPorts 2.7.1 (\url{MACPORTS.ORG}) and is capable of
+recording audio from the built-in microphone on Apple MacBook Air M1
+(2020) (\url{APPLE.COM}).
+
+The recording can be achieved manually with the following statements:
+
+\begin{itemize}
+\item Install MacPorts 2.7.1 from \url{https://www.macports.org/}
+\item Install binary package from macports.org \begin{verbatim}
+  sudo port install gingerblue
+
+  gingerblue
+\end{verbatim}
+
+\item Install dependencies from macports.org \begin{verbatim}
+  sudo port install git desktop-file-utils geoclue2 geocode-glib
+  sudo port install glib2 gstreamer1 libxml2 pango
+  sudo port install gstreamer1-gst-plugins-base gtk3 
+  sudo port install gstreamer1-gst-plugins-bad
+  sudo port install gstreamer1-gst-plugins-good
+  sudo port install gstreamer1-gst-plugins-ugly zlib xz
+  sudo port install adwaita-icon-theme libchamplain
+  sudo port install autoconf automake clang-9.0 geoclue2
+  sudo port install geocode-glib gnome-common gtk-doc
+  sudo port install intltool itstool
+  sudo port install p5.28-xml-sax-expat pkgconfig yelp-tools
+\end{verbatim}  
+\item Install latest source from gitlab.gnome.org \begin{verbatim}
+  git clone http://gitlab.gnome.org/ole/gingerblue.git
+
+  cd gingerblue/
+
+  ./configure --prefix=/usr/local
+
+  make
+
+  sudo make install
+
+  [ENTER PASSWORD]
+
+  /usr/local/bin/gingerblue
+\end{verbatim}
+\end{itemize}
+
+\chapter{Results}                     %% ... or ??
+
+The formal proof is the audio file that was recorded running GNOME
+Gingerblue 2.0.1 on Apple MacBook Air M1 (2020) running macOS 11.6
+with MacPorts 2.7.1 (\url{MACPORTS.ORG}) at Universitetsbiblioteket,
+a public library at University of Oslo and uploaded to
+\url{https://www.gingerblue.org/Universitetsbiblioteket.ogg} and it
+follows the optimal environment where this thesis and the software
+was written and explored.
+
+\chapter{Patents Cited}
+
+\begin{itemize}
+\item 341287 Recording and Reproducing Sounds.  Sumner Tainter.  May 4, 1886.
+\item 342214 Recording and Reproducing Speech and Other Sounds.  Chichester A. Bell and Sumner Tainter.  May 4, 1886.
+\item 661619 Method of Recording and Reproducing Sound or Signals.  Valdemar Poulsen.  November 13, 1900.
+\item 836339 Magnetizable Body for the Magnetic Record of Speech.  P.O. Pedersen.  November 20, 1906.
+\item 873078 Electromagnet For Telegraphone Purpose.  Peder P. Pedersen and Valdemar Poulsen.  December 10, 1907.
+\item 900392 Sound Recording and Reproducing Instruments.  George Kirkegaard.  October 6, 1908.
+\item 1142384 Telegraphone. George S. Tiffany.  June 8, 1915.
+\item 1213150 Method of Producing Magnetic Sound-Records for Talking-Motion-Picture Films. Henry C. Bullis.  January 23, 1917.
+\item 1639060 Magnetic Talking, Dictating, and Like Machine. Gustav Scheel (System-Stille GmbH).  August 16, 1927.
+\item 1640881 High Frequency Biasing. W.L. Carlson and G.W. Carpenter.  August 30, 1927.
+\item 1883560 Electromagnetic Sound Recording and Reproducing Machine. Harry E. Chipman.  October 18, 1932.
+\item 1883561 Magnetic Sound Recording and Reproducing Head. Harry E. Chipman.  October 18, 1932.
+\item 2248790 Sound Recording Device. Arnold Stapelfeldt. (C. Lorenz AG).  July 8, 1941.
+\item 2264008 Magnetic Sound Recording Device. Arnold Stapelfeldt (C. Lorenz AG).  November 25, 1941.
+\item 2351003 Recording and Reproduction of Vibrations. Marvin Camras and William Korzon.  November 18, 1941.
+\item 2351007 Magnetic Recording Head. Marvin Camras. June 13, 1944. 2773120 Magnetic Recording of High Frequency Signals Earl E. Masterson (RCA).  December 4, 1956.
+\item 2866012 Magnetic Tape Recording and Reproducing System. Charles P. Ginsburg and Shelby F. Henderson, Jr. (Ampex).  December 23, 1958.
+\item 2900443 Magnetic Recorder and Reproducer for Video. Marvin Camras.  August 18, 1959.
+\item 2900444 Means for Recording and Reproducing Video Signals. Marvin Camras.  August 18, 1959.
+\item 2912517 Magnetic Tape Apparatus. Robert Fred Pfost (Ampex).  November 10, 1959.
+\item 2912518 Magnetic Tape Apparatus. Alexander R. Maxey (Ampex).  November 10, 1959.
+\item 2916546 Visual Image Recording and Reproducing System and Method. Charles P. Ginsburg and Ray M. Dolby (Ampex). December 8, 1959.
+\item 2916547 Recording and Reproducing System. Charles P. Ginsburg and Shelby F. Henderson, Jr. (Ampex).  December 8, 1959.
+\end{itemize}
+
+\begin{thebibliography}{100}
+\bibitem{KernighanRitchie78} Kernighan, Brian W., Ritchie, Dennis M., ``The C programming language'', 1978.
+\bibitem{Boney96} Boney, L., Tewfik, A.H., and Hamdy, K.N., ``Digital Watermarks for Audio Signals," \emph{Proceedings of the Third IEEE International Conference on Multimedia}, pp. 473-480, June 1996.
+\bibitem{BIOS61} British Intelligence Objectives Subcommittee, p. 61.
+\bibitem{PIR} Chignell, Hugh, \emph{Public Issue Radio}, Palgrave Macmillan, Great Britain, 2011.
+\bibitem{MG}  Goossens, M., Mittelbach, F., Samarin, \emph{A LaTeX Companion}, Addison-Wesley, Reading, MA, 1994.
+\bibitem{HK}  Kopka, H., Daly P.W., \emph{A Guide to LaTeX}, Addison-Wesley, Reading, MA, 1999.
+\bibitem{Nmungwun89} Nmungwun, A. F., \emph{Video Recording Technology}, \emph{Lawrence Erlbaum Associates, Publishers}, pp. 8-24, 1989.
+\bibitem{Pan} Pan, D., \emph{A Tutorial on MPEG/Audio Compression}, \emph{IEEE Multimedia}, Vol.2, pp.60-74, Summer 1998.
+\bibitem{Pulkki18} Pulkki, V., Delikaris-Manias, S., Politis, A., ``Parametric Time-Frequency Domain Spatial Audio'', \emph{IEEE Press}, pp. 3-4
+\bibitem{Cox95} Cox, G., ``Pioneering Television News'', \emph{John Libbey}
+\end{thebibliography}
+\bibliography
+\backmatter{}\\
+
+\printbibliography
+
+\chapter*{Application Letter to University of Copenhagen}
+
+\begin{verbatim}
+To whom it may concern,
+
+I have studied Computer Science (Object-oriented programming) and
+Mathematics (Linear Algebra) at University of Oslo since 1997 in
+my home city Oslo.
+
+I have been building a network, maintaining network connectivity at
+Fjellbirkeland at University of Oslo since 1998-1999 and worked
+at Norwegian Computer Center (NR -- www.nr.no) in 2001-2004.
+
+I have worked on building a commercial 400.000 domain network in
+Norway since 2003 (Domainnameshop -- www.domainnameshop.com) with
+Ståle Schumacher, Dag Fredrik Øien, and Jan Ingvoldstad.
+
+My plans for advanced studies at University of Copenhagen is to
+complete my Bachelor of Science degree at University of Oslo in
+2024 with 60 study points of Mathematics-Economics, Mathematics or 
+Computer Science at a top Danish university in Copenhagen,
+where Hans Christian Ørsted worked on electricity in 1820.
+
+I hope to further perfect my work at the Gingerblue project
+(www.gingerblue.org) before June 24, 2024.
+
+Ole Kristian Aamot
+www.gnomeradio.org
+www.gingerblue.org
+www.gnomevoice.org
+\end{verbatim}
+
+\noindent GNOME Radio: \url{http://www.oleaamot.no/omu/bachelor/Aamot,2020.pdf}
+
+\noindent Gingerblue: \url{http://www.oleaamot.no/uio/bachelor/Aamot,2022.pdf}
+
+\noindent GNOME Voice: \url{http://www.oleaamot.no/ntnu/bachelor/Aamot,2024.pdf}
+
+\end{document}
