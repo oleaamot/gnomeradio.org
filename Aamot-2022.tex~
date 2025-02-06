@@ -1,0 +1,76 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{url}
+
+\author{Ole Kr. Aamot\\
+  Department of Physics\\
+  University of Oslo, Norway}
+\title{Immediate Graphical Audio Recording in GNOME Gingerblue 4.0.1 (May 1, 2022)}
+
+\begin{document}
+
+\maketitle
+
+\abstract{\it{New technique for recording immediate audio waves is implemented with GStreamer in GNOME Gingerblue 4.0.1 available from www.gingerblue.org and wiki.gnome.org/Apps/Gingerblue\\
+The full paper, Bachelor's thesis report, essay, conference talks and
+software downloads and updates for Debian GNU/Linux 11, Fedora 36 and
+Ubuntu 22.04 LTS are published on the GNOME Gingerblue Project's
+website at www.gingerblue.org and this author's homepage at
+oleaamot.no}}\\
+
+Audio waves are air-pressures that provide the physical basis of recording
+these waves, discovered by Thomas Alva Edison in 1877.
+
+Audio waves differ in their frequency and wavelength.
+
+With the software GNOME Radio 16 on GNOME 42, audio waves are travelling from
+recording stations such as WMBR at M.I.T. in Cambridge, MA in Boston up to
+distances larger than five thousand kilometers between Boston and Oslo
+where we as listeners on computers in Oslo can listen to sound waves
+recorded with a microphone on a computer in Boston between two
+continents in the world due to audio waves and the products
+from work in electrical engineering.
+
+Nyquist-Shannon Sampling Theorem is named after the American scientist
+Harry Nyquist and Claude Shannon and Nyquist's Law states that the
+recording frequency must be the double of the desired sampling
+frequency.
+
+145 years ago American engineer Thomas Alva Edison discovered the first 
+evidence of the relationship of audio waves with mechanical sampling methods.
+
+On May 1, 2022, based on the previous work towering in electrical
+engineering done by Anton Pryima, Wim Taymans, Miguel de Icaza,
+Federico Mena, Linus Torvalds, Richard M. Stallman, John von Neumann,
+Alan Turing, Thomas Alva Edison, James Clerk Maxwell, Andr\'e-Marie Amp\`ere, Hans
+Christian \O{}rsted and Michael Faraday, the immediate graphical
+audio recording technique in GNOME Gingerblue 4.0.1 was discovered.
+
+The Immediate Graphical Audio Recording can be recorded and heard in
+time-space for a previous audio wave on a GNU/Linux computer from
+Hewlett Packard installed with Debian 11, Fedora 36 or Ubuntu 22.04
+LTS operating system that is running the gingerblue software
+documented in the Bachelor's thesis Public Audio Recording Software
+for Recording World Sounds (University of Oslo, May 2022) in the
+Bachelor of Science program in Electrical Engineering, Informatics and
+Technology at Department of Physics, University of Oslo.
+
+The full paper, Bachelor's thesis report, essay, conference talks and
+software downloads and updates for Debian GNU/Linux 11, Fedora 36 and
+Ubuntu 22.04 LTS are published on the GNOME Gingerblue Project's
+website at www.gingerblue.org and this author's homepage at oleaamot.no
+
+The experiments with the Immediate Graphical Audio Recording technique
+in GNOME Gingerblue that was discovered and observed on May 1, 2022,
+based on the previous work towering in electrical engineering done by
+Anton Pryima, Wim Taymans, Miguel de Icaza, Federico Mena, Linus
+Torvalds, Richard M. Stallman, John von Neumann, Alan Turing, Thomas
+Alva Edison, James Clerk Maxwell, Andr\'e-Marie Amp\`ere, Hans
+Christian \O{}rsted and Michael Faraday, was confirmed on Hewlett
+Packard hardware running Fedora Core 36 and Apple MacBook Air M1/8/256
+2020) running MacPorts in Oslo, Norway on May 1st, 2022.
+
+See www.gingerblue.org and wiki.gnome.org/Apps/Gingerblue for details on the Immediate Graphical Audio Recording efforts in GNOME Gingerblue.
+
+\end{document}

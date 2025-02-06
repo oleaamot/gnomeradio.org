@@ -1,0 +1,2 @@
+\beamer@sectionintoc {1}{GNOME Radio 16 on GNOME 42}{2}{0}{1}
+\beamer@sectionintoc {2}{Compiling from Source}{8}{0}{2}

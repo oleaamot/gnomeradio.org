@@ -1,0 +1,152 @@
+From: Ole Aamot <ole@gnome.org>
+Date: Fri, Sep 30, 2022 at 7:27 PM
+Subject: Fwd: GNOME Radio - www.gnomeradio.org - legal advice under F.C.C. licensing
+
+My reply to Eben Moglen, Professor at Columbia Law University and Software Freedom Law Center.
+
+Best,
+Ole Aamot
+
+---------- Forwarded message ---------
+From: Ole Aamot <ole@gnome.org>
+Date: Tue, Jul 27, 2021 at 4:04 PM
+Subject: Re: GNOME Radio - www.gnomeradio.org - legal advice under F.C.C. licensing
+To: Eben Moglen <eben@softwarefreedom.org>
+Cc: <mishi@softwarefreedom.org>, Ole Aamot <ole@gnome.org>
+
+
+On Tue, Jul 27, 2021, 2:38 PM Eben Moglen <eben@softwarefreedom.org> wrote:
+
+    Hello Ole,
+
+
+Hello again Professor Moglen,
+
+    GNOME Radio is not subject to FCC licensing in any respect.  You are
+    not engaged in broadcasting, or communications by radio at all.  Your
+    activity is analogous to that of a browser, not that of a radio
+    station, and FCC has no more interest in your software than they do in
+    that published by Mozilla, Brave, or (for that matter) the Linux
+    kernel itself.
+
+
+Good to know.
+
+    FCC is also not statutorily empowered to regulate software for general
+    purpose computers, standing alone, in any context, as we have
+    previously pointed out to the agency with respect to free software
+    other or related contexts, involving GNU Radio, which was closer to
+    FCC jurisdiction in its functionality than you are.  You need not be
+    concerned to take any measures to avoid regulations they cannot
+    impose.
+
+
+OK, GNOME Radio 3.0 is described shortly in my Bachelor thesis "Public Internet Radio Client for Accessing Free Audio Maps in Countries with Free Speech" (2020/06/24) http://www.gnomeradio.org/~ole/thesis.pdf
+
+I didn't write much about the F.C.C., except a statement from a book on broadcast media:
+
+"In November 1934 Federal Communications Commission (FCC) replaced
+Federal Radio Commission. It is authorized to control all foreign and interstate
+radio, telegraph, and cable communications."
+
+    With respect to claims for royalties from music publishers or
+    collecting societies, licensing with respect to streaming (by those
+    also broadcasting or streaming as a service that replaces radio
+    broadcasting) is the responsibility of streamers, not listeners.
+    Disputes about the payments owed under compulsory licenses to
+    streaming operators will continue periodically in the future, as those
+    concerning broadcast rights do, but you are not a party to those
+    issues.
+
+
+Thank you, this really resolved my concerns.
+
+    Does GNOME Radio offer any stream-ripping features?  Those we might
+    want to discuss in more detail, if so.
+
+
+No, GNOME Radio doesn't offer stream-ripping features.
+
+I write GNOME Gingerblue (see http://www.gingerblue.org/), a separate program that is capable of entering XML  metadata about musicians and immediately recording from the microphone, but it is not capable of ripping high-quality streams or annotating meta info about recorded music like the proprietary software "Shazam" yet.
+
+    We are available to offer legal services pro bono publico if you are
+    contacted by US regulators or copyright holders.  Forwarding such
+    email to us is all you need to do.  Because you have no immediate need
+    for legal services I won't bother you with a formal retainer, but if
+    for any reason you would like to formalize our role as your lawyer for
+    these and related issues, please do let me know and I'll send you a
+    retainer agreement to review.
+
+    Best regards,
+    Eben
+
+
+Thank you very much, Professor Moglen!
+
+Best,
+Ole Aamot
+
+    On Wednesday, 21 July 2021, Ole Aamot wrote:
+
+      To Software Freedom Law Center,
+
+      I represent myself as a maintainer of gnome-internet-radio-locator in
+      the GNOME Foundation project www.gnome.org and as a project leader of
+      the GNOME Radio project www.gnomeradio.org.
+
+      The projects provide client access to immediate audio streaming from
+      various Internet radio stations from C-SPAN, NPR and BBC licensed to
+      broadcast freely by the FCC in the United States of America.
+
+      I would like some free legal advice on how you think that the project
+      can protect itself from future legal challenges from the RIAA and the
+      FCC in the United States.  We comply to music licensing with the file
+
+      * gnome-internet-radio-locator-12.0.0/BROADCASTING
+
+        You don't need a license to listen to Internet radio, but if you run
+        a radio station and broadcast music to the general public, you need
+        a broadcast license permit from the F.C.C. if you are in the U.S. to
+        legally broadcast (see http://en.wikipedia.org/wiki/Broadcast_license
+        and https://www.dnalounge.com/backstage/webcasting.html).
+
+        See http://www.icecast.org/ for a free streaming server by Xiph.org.
+
+        The radio stations in GNOME Internet Radio Locator are non-profit
+        stations serving the public interest.
+
+        The power of the Federal Communications Commission (F.C.C.) reside in
+        its authority of granting broadcast licenses to local radio stations,
+        according to page 812 in The New York Times Guide to Essential
+        Knowledge (ISBN 0-312-37659-6):
+
+        Rather than support a highly centralized form of broadcasting like
+        the national public service networks being established in European
+        countries, American communications policy celebrated the fundamental
+        principle of "localism," convinced that American democracy would be
+        served best by independent local stations operating without
+        excessive government supervision.  The agency's power of enforcement
+        came from its ability to revoke, or refuse to renew, the license of
+        a local station -- something that has happened rarely.
+
+        With GNOME Internet Radio Locator, you can listen for free to live
+        broadcasts by radio stations from all around the world, including the
+        U.S. stations as long as the U.S. radio stations aren't revoked by   
+        the F.C.C. for failing to pay the royalty fees for the music that the
+        radio stations broadcast on the Internet to the royalty fee  
+        collection agencies such as The American Society of Composers,
+        Authors and Publishers (ASCAP), Broadcast Music, Inc. (BMI), and  
+        Society of European Stage Authors and Composers (SESAC).
+
+        Enjoy Free Internet radio,
+        Ole Aamot, February 13th 2019
+
+      We are not relaying broadcasts.
+
+      The GNOME Foundation is based in USA and GNOME Radio is based here in
+      Oslo, Norway.
+
+      Hope this helps.
+
+      Best,
+      Ole Aamot

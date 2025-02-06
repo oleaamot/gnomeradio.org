@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>GNU Network Object Model Environment Radio 64 (gnomeradio.org)</title>
+    <link rel='stylesheet' id='home-css'  href='https://www.gnomeradio.org/css/main.css' type='text/css' media='all' />
+    <style type='text/css'>
+      body {
+        margin-top: 0px;
+        margin-bottom: 100px;
+        margin-right: 150px;
+        margin-left: 80px;
+      }
+      a{color:#1919e6;text-decoration:none};
+      a:visited{color:#1313a5};
+    </style>    
+  </head>
+  <body>
+  <table>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+	  <h1 style="text-align: center">GNU Network Object Model Environment 64</h1>
+	  <p><center><a href="http://gitlab.gnome.org/oka/gnome-radio.git"><img src="gnome-radio.svg" width="280" height="280" border="0" /></a></center></p>
+	  <p style="text-align: center">GNU Network Object Model Environment Radio is Free Internet Radio Software for GNU Network Object Model Environment. The latest GNU Network Object Model Environment 64.0.45 release features 214 international radio stations, India (Radio Punjab Today), United States (C-SPAN), United Kingdom (BBC), Hawaii Public Radio (NPR), University of Washington, NPO Radio 1 (Netherlands) and 98 city map markers around the world.</p>
+	  <h1 style="text-align: center"><a href="http://www.gnomeradio.org/src/gnome-radio-64.0.45.tar.xz">Radio for GNU Network Object Model Environment 45</a></h1>
+	  <h3 style="text-align: center"><a href="http://www.gnomeradio.org/src/gnome-radio-64.0.45.tar.xz">Download</a> | <a href="http://www.gnomeradio.org/#Help">Help</a> | <a href="http://www.gnomeradio.org/#News">News</a> | <a href="http://www.gnomeradio.org/#Publications">Publications</a> | <a href="http://www.gnomeradio.org/#References">References</a> | <a href="http://www.gnomeradio.org/#SourceCode">Source Code</a> | <a href="http://wiki.gnome.org/Apps/Radio">Wiki</a></b></h3>
+          <p><center><a href="screenshot.png"><img src="screenshot.png" alt="GNU Network Object Model Environment Internet Radio Locator is Free Internet Radio Software for GNU Network Object Model Environment. The latest GNU Network Object Model Environment Radio 64.0.45 release features 228 international radio stations, India (Radio Punjab Today), United States of America (C-SPAN), United Kingdom (BBC), Hawaii Public Radio (NPR), Radio Jazz Copenhagen, Kyiv Radio (Retro FM), Echo of Moscow, SomaFM, University of Washington and 98 city map markers around the world." width="160" height="120" /></a><a href="gnome-radio-cal.png"><img src="gnome-radio-cal.png" alt="GNU Network Object Model Environment Internet Radio Locator is Free Internet Radio Software for GNU Network Object Model Environment. The latest GNU Network Object Model Environment Radio 64.0.45 release features 228 international radio stations, India (Radio Punjab Today), United States of America (C-SPAN), United Kingdom (BBC), Hawaii Public Radio (NPR), Radio Jazz Copenhagen, Kyiv Radio (Retro FM), Echo of Moscow, SomaFM, University of Washington and 98 city map markers around the world." width="160" height="120" /></a><a href="gnome-radio-somafm.png"><img src="gnome-radio-somafm.png" alt="GNU Network Object Model Environment Internet Radio Locator is Free Internet Radio Software for GNU Network Object Model Environment. The latest GNU Network Object Model Environment Radio 64.0.45 release features 228 international radio stations, India (Radio Punjab Today), United States of America (C-SPAN), United Kingdom (BBC), Hawaii Public Radio (NPR), Radio Jazz Copenhagen, Kyiv Radio (Retro FM), Echo of Moscow, SomaFM, University of Washington, Radio Free Asia, Radio Taiwan International and 99 city map markers around the world." width="160" height="120" /></a><a href="gnome-radio-wnyc.png"><img src="gnome-radio-wnyc.png" alt="GNU Network Object Model Environment Internet Radio Locator is Free Internet Radio Software for GNU Network Object Model Environment. The latest GNU Network Object Model Environment Radio 64.0.45 release features 227 international radio stations, United States of America (C-SPAN), United Kingdom (BBC), Hawaii Public Radio (NPR), Kyiv Radio (Retro FM), Echo of Moscow, Radio Jazz Copenhagen, Echo of Moscow, SomaFM, University of Washington and 98 city map markers around the world." width="160" height="120" /></a><br /><a href="http://www.gnomeradio.org/news/BBC_on_Russian_occupation_and_NATO_liberation_of_Ukraine_20220913.ogg"><img src="screenshot.png" alt="GNU Network Object Model Environment Internet Radio Locator is Free Internet Radio Software for GNU Network Object Model Environment.  The latest GNU Network Object Model Environment 64.0.45 release features 227 international radio stations, University of Southern California (KXSC), United States of America (C-SPAN), United Kingdom (BBC), Hawaii Public Radio (NPR), Kyiv Radio (Retro FM), Radio Jazz Copenhagen, SomaFM, University of Washington and 108 city map markers around the world." width="64.0.450" /></a></center></p>
+	  <h2 style="text-align: center"><b><a href="http://www.gnomeradio.org/#Debian">Debian 11</a> | <a href="http://www.gnomeradio.org/#Fedora">Fedora 39 Beta</a> | <a href="http://www.gnomeradio.org/#Ubuntu">Ubuntu 23.04</a> | <a href="http://www.gnomeradio.org/#macOS">macOS 13</a>  | <a href="http://www.gnomeradio.org/#MacPorts">MacPorts</a> | <a href="http://www.gnomeradio.org/#WSL2">WSL2</a> | <a href="http://www.gnomeradio.org/#Flatpak">Flatpak</a></b></h2>
+	  <a name="Debian"><h3>Installation on <a href="http://www.debian.org/">Debian 11</a> (<a href="http://forty.gnome.org/">GNU Network Object Model Environment 42</a>) from <a href="http://help.gnome.org/users/gnome-terminal/stable/">GNU Network Object Model Environment Terminal</a></h3></a>
+	  <pre>sudo apt-get install gnome-common gcc git make wget
+sudo apt-get install debhelper intltool dpkg-dev-el libgeoclue-2-dev
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+sudo apt-get install gtk-doc-tools itstool libxml2-utils yelp-tools
+sudo apt-get install libchamplain-0.12-dev libchamplain-gtk-0.12
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+<a href="http://www.gnomeradio.org/~ole/debian/gnome-radio_64.0-1_amd64.deb">wget http://www.gnomeradio.org/~ole/debian/gnome-radio_64.0-1_amd64.deb</a><br />sudo dpkg -i gnome-radio_64.0-1_amd64.deb</pre>
+	  <a name="Fedora"><h3>Installation on <a href="http://getfedora.org/">Fedora Core 39 Beta</a> (<a href="http://release.gnome.org/45">GNU Network Object Model Environment 45</a>) from <a href="http://help.gnome.org/users/gnome-terminal/stable/">GNU Network Object Model Environment Terminal</a></h3></a>
+	  <pre><a href="http://gnomeradio.org/fedora/gnome-radio-64.0.45-1.fc39.x86_64.rpm">sudo dnf install http://gnomeradio.org/fedora/gnome-radio-64.0.45-1.fc39.x86_64.rpm</a></pre>
+	  <a name="Ubuntu"><h3>Installation on <a href="http://www.ubuntu.com">Ubuntu 23.04</a> (<a href="http://forty.gnome.org/">GNU Network Object Model Environment 42</a>) from <a href="http://help.gnome.org/users/gnome-terminal/stable/">GNU Network Object Model Environment Terminal</a></h3></a>
+	  <pre>sudo apt-get install gnome-common gcc git make wget
+sudo apt-get install debhelper intltool dpkg-dev-el libgeoclue-2-dev
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+sudo apt-get install gtk-doc-tools itstool libxml2-utils yelp-tools
+sudo apt-get install libchamplain-0.12-dev libchamplain-gtk-0.12
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+<a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0.45-1_amd64.deb">wget http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0.45-1_amd64.deb</a><br />sudo dpkg -i gnome-radio_64.0.45-1_amd64.deb</pre>
+	  <a name="macOS"><h3>Installation on macOS 13 (Ventura)</h3></a>
+	  <pre><a href="http://www.gnomeradio.org/mac/gnome-radio-64.0.45.dmg">http://www.gnomeradio.org/mac/gnome-radio-64.0.45.dmg</a></pre>
+	  <a name="WSL2"><h3>Installation on Windows 11 WSL2</h3></a>
+<pre>
+In Windows PowerShell:
+
+wsl.exe --install Debian
+
+In WSL Debian console:
+
+sudo apt-get install gnome-common gcc git make wget
+sudo apt-get install debhelper intltool dpkg-dev-el libgeoclue-2-dev
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+sudo apt-get install gtk-doc-tools itstool libxml2-utils yelp-tools
+sudo apt-get install libchamplain-0.12-dev libchamplain-gtk-0.12
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+wget http://www.gnomeradio.org/wsl/gnome-radio-64.0.wsl.tar.xz
+tar Jxvf gnome-radio-64.0.wsl.tar.xz
+cd gnome-radio-64.0/
+./autogen.sh
+make && make install
+/usr/local/bin/org.gnome.Radio &
+/usr/local/bin/gnome-radio &</pre>
+	  <a name="Flatpak"><h3>Installation on Flatpak</h3></a>
+	  <pre>flatpak install <a href="https://dl.flathub.org/build-repo/48857/org.gnomeradio.Radio.flatpakref">https://dl.flathub.org/build-repo/48857/org.gnomeradio.Radio.flatpakref</a>
+flatpak run --share=network --socket=pulseaudio --socket=session-bus org.gnomeradio.Radio</pre>
+	  <h3>On any platform</h3>
+	  <pre><a href="http://www.gnomeradio.org/~ole/gnome-radio/gnome-radio.xml">http://www.gnomeradio.org/~ole/gnome-radio/gnome-radio.xml</a></pre>
+	  <a name="Help"><h3>Help</h3></a>
+	  <p>Welcome to the GNU Network Object Model Environment Internet Radio Locator 64.0.45 for GNU Network Object Model Environment 45 help guide at <a href="http://gnomeradio.org/help/C/">http://gnomeradio.org/help/C/</a>.  For a quick introduction into the features of the GNU Network Object Model Environment Internet Radio Locator 64.0.45 for GNU Network Object Model Environment 45, visit the Introduction page at <a href="http://gnomeradio.org/help/C/intro.html">http://gnomeradio.org/help/C/intro.html</a></p>
+	  <a name="Publications"><h3>Publications</h3></a>
+	  <p><a href="http://www.oleaamot.com/">Aamot, Ole</a> (<a href="http://www.guadec.org/">GUADEC 2023</a> Conference Presentation, 2023).  <a href="http://www.gnomeradio.org/~ole/GUADEC2023.pdf">GNU Network Object Model Environment Radio 64.0 on GNU Network Object Model Environment 44</a>.<br />	  
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (<a href="http://www.guadec.org/">GUADEC 2022</a> Conference Presentation, July 24, 2022).  <a href="http://www.gnomeradio.org/~ole/GUADEC2022.pdf">GNU Network Object Model Environment Radio 16 on GNU Network Object Model Environment 42</a>.<br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (<a href="http://events.gnome.org/event/9/">GUADEC 2021</a> Conference Presentation, July 25, 2021).  <a href="http://www.gnomeradio.org/~ole/GUADEC2021.pdf">GNU Network Object Model Environment Radio 12</a>.<br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (BSc Electrical Engineering Article, June 14, 2021).  <a href="http://www.gnomeradio.org/Aamot-2021.pdf">Immediate Radio flux in GNU Network Object Model Environment Radio fields confirmed (June 14, 2021)</a>.  <a href="http://www.gnomeradio.org/Aamot-2021.pdf">GNU Network Object Model Environment Radio 10</a>.<br /
+	  <p><a href="http://www.oleaamot.com/">Aamot, Ole</a> (<a href="http://2020.guadec.org/">GUADEC 2020</a> Conference Presentation, July 27, 2020).  <a href="http://www.gnomeradio.org/~ole/gnome-radio.pdf">GNU Network Object Model Environment Radio 3</a>.<br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (BSc Electrical Engineering Summary, July 25, 2020).  <a href="http://www.gnomeradio.org/Aamot-2020.pdf">Radio flux in GNU Network Object Model Environment Radio fields confirmed (2020)</a>.<br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (BSc Electrical Engineering Article, June 15, 2020).  <a href="http://www.gnomeradio.org/~ole/Aamot-2020.pdf">Radio flux in GNU Network Object Model Environment Radio fields (2020)</a><br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (BSc Electrical Engineering Thesis, June 24, 2020).  <a href="http://www.gnomeradio.org/~ole/thesis.pdf">Public Internet Radio Client for Accessing Free Audio Maps in Countries with Free Speech (2020)</a>.<br />
+          <a href="http://www.oleaamot.com/">Aamot, Ole</a> (<a href="http://gstreamer.freedesktop.org/conference/2019/">GStreamer Conference 2019</a> Conference Presentation, October 28, 2019).  <a href="http://people.gnome.org/~ole/GC2019.pdf">Free Software for Free Radio with GStreamer</a>.<br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (BSc Philosophy Article, September 23, 2019).   <a href="http://www.gnomeradio.org/~ole/Aamot-Turing-Gettier-2020.pdf">Free Radio and Artificial Intelligence (2020)</a>.<br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (<a href="http://2019.guadec.org/">GUADEC 2019</a> Conference Presentation, August 23, 2019).  <a href="http://people.gnome.org/~ole/GUADEC2019.pdf">GNU Network Object Model Environment Radio / Public Network Radio Software for Accessing Free Audio Broadcasts</a>.<br />
+	  <a href="http://www.oleaamot.com/">Aamot, Ole</a> (BSc Position Paper, August 7, 2019).  <a href="http://www.gnomeradio.org/~ole/GNOMERadio2019.pdf">GNU Network Object Model Environment Radio Position Paper (2019)</a>.</p>
+	  <!--
+	  <h3>Support GNU Network Object Model Environment Radio Development</h3>
+	  <form action="http://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	    <input type="hidden" name="cmd" value="_s-xclick" />
+	    <input type="hidden" name="hosted_button_id" value="5B7BHHLUHV6UY" />
+	    <input type="image" src="http://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+	    <img alt="" border="0" src="http://www.paypal.com/no_NO/i/scr/pixel.gif" width="1" height="1" />
+	  </form>
+-->
+	  <a name="News"><h3>News</h3></a>
+	  <h3>September 22, 2023 20:30 CEST</h3>
+          <p>Radio 64.0.45 for GNU Network Object Model Environment 45 is available for Fedora Core 39 Beta <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc39.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc39.x86_64.rpm</a></p>
+	  <h3>August 08, 2023 03:20 CEST</h3>
+	  <p>Radio 64.0.45 for GNU Network Object Model Environment 45 is now available for <a href="http://www.debian.org/">Debian running on Windows 11 WSL2</a> from <a href="http://www.gnomeradio.org/wsl/gnome-radio-64.0.wsl.tar.xz">http://www.gnomeradio.org/wsl/gnome-radio-64.0.wsl.tar.xz</a> and <a href="http://www.windows.com/">Windows 11 WSL2</a> from <a href="http://www.gnomeradio.org/wsl/gnome-radio-64.0.wsl.tar.xz">http://www.gnomeradio.org/wsl/gnome-radio-64.0.wsl.tar.xz</a></p>
+	  <h3>August 07, 2023 22:50 CEST</h3>
+	  <p>Radio 64.0.45 for GNU Network Object Model Environment 45 is now available for <a href="http://www.debian.org/">Debian 11 amd64</a> from <a href="http://www.gnomeradio.org/~ole/debian/gnome-radio_64.0.45-1_amd64.deb">http://www.gnomeradio.org/~ole/debian/gnome-radio_64.0.45-1_amd64.deb</a> and <a href="http://www.ubuntu.com/">Ubuntu 23.04 amd64</a> from <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0.45-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0.45-1_amd64.deb</a></p>
+	  <h3>August 07, 2023 20:30 CEST</h3>
+          <p>Radio 64.0.45 for GNU Network Object Model Environment 45 is available for Fedora Core 38 <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc38.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc38.x86_64.rpm</a></p>
+	  <h3>July 17, 2023</h3>
+	  <p>Radio 64.0 for GNU Network Object Model Environment 44 is now available for <a href="http://www.debian.org/">Debian 11 amd64</a> from <a href="http://www.gnomeradio.org/~ole/debian/gnome-radio_64.0-1_amd64.deb">http://www.gnomeradio.org/~ole/debian/gnome-radio_64.0-1_amd64.deb</a> and <a href="http://www.ubuntu.com/">Ubuntu 22.04 amd64</a> from <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0-1_amd64.deb</a></p>
+	  <h3>March 20, 2023 22:47 CEST</h3>
+          <p>Radio 64.0 for GNU Network Object Model Environment 44 is available for Fedora Core 38 <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc38.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc38.x86_64.rpm</a></p>
+	  <h3>November 21, 2022 23:10 CEST</h3>
+	  <p>Radio 64.0 for GNU Network Object Model Environment 44 is available for macOS 13 (Ventura) <a href="http://www.gnomeradio.org/mac/gnome-radio-64.0.dmg">http://www.gnomeradio.org/mac/gnome-radio-64.0.dmg</a></p>
+	  <h3>November 17. 2022 16:20 CEST</h3>
+          <p>Radio 64.0 for GNU Network Object Model Environment 44 is available for Fedora Core 37 <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc37.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc37.x86_64.rpm</a></p>
+	  <h3>November 9, 2022 16:05 CEST</h3>
+	  <p>Radio 64.0 for GNU Network Object Model Environment 44 is available from <a href="http://www.gnomeradio.org/src/gnome-radio-64.0.45.tar.xz">http://www.gnomeradio.org/src/gnome-radio-64.0.45.tar.xz</a></p>
+	  <h3>November 2, 2022 16:10 CEST</h3>
+	  <p>Radio 48.1 for GNU Network Object Model Environment 44 is available from <a href="http://download.gnome.org/sources/gnome-radio/48/gnome-radio-48.1.tar.xz">http://download.gnome.org/sources/gnome-radio/48/gnome-radio-48.1.tar.xz</a> and <a href="http://wiki.gnome.org/Apps/Radio">http://wiki.gnome.org/Apps/Radio</a></p>
+	  <h3>October 1, 2022 03:15 CEST</h3>
+          <p>Radio 48.0 for GNU Network Object Model Environment 44 is now available for <a href="http://getfedora.org/">Fedora Core 37</a> from <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-48.0-1.fc37.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-48.0-1.fc37.x86_64.rpm</a> with BBC - Radio 1 BBC - Radio 2, 
+BBC - Radio 3, 
+BBC - Radio 4, 
+BBC - Radio 4 LW (UK only), 
+BBC - Radio 4 LW (non-UK), 
+BBC - Radio 5 live (UK only), 
+BBC - Radio 5 live (non-UK), 
+BBC - Radio 6 Music, 
+BBC - Radio 1Xtra, 
+BBC - Radio 4 Extra, 
+BBC - Radio 5 Live sports extra (UK only), 
+BBC - Radio Asian Network, 
+BBC - BBC CWR, 
+BBC - BBC Essex, 
+BBC - BBC Hereford Worcester, 
+BBC - Radio Berkshire, 
+BBC - Radio Bristol, 
+BBC - Radio Cambridge, 
+BBC - Radio Cornwall, 
+BBC - Radio Cumbria, 
+BBC - Radio Cymru, 
+BBC - Radio Cymru 2, 
+BBC - Radio Derby, 
+BBC - Radio Devon, 
+BBC - Radio Foyle, 
+BBC - Radio Gloucestershire, 
+BBC - Radio Guernsey, 
+BBC - Radio Humberside, 
+BBC - Radio Jersey, 
+BBC - Radio Kent, 
+BBC - Radio Lancashire, 
+BBC - Radio Leeds, 
+BBC - Radio Leicester, 
+BBC - Radio Lincolnshire, 
+BBC - Radio London, 
+BBC - Radio Manchester, 
+BBC - Radio Merseyside, 
+BBC - Radio nan Gaidheal, 
+BBC - Radio Newcastle, 
+BBC - Radio Norfolk, 
+BBC - Radio Northampton, 
+BBC - Radio Nottingham, 
+BBC - Radio Orkney, 
+BBC - Radio Oxford, 
+BBC - Radio Scotland FM, 
+BBC - Radio Scotland MW, 
+BBC - Radio Sheffield, 
+BBC - Radio Shropshire, 
+BBC - Radio Solent, 
+BBC - Radio Solent West Dorset, 
+BBC - Radio Somerset Sound, 
+BBC - Radio Stoke, 
+BBC - Radio Suffolk, 
+BBC - Radio Surrey, 
+BBC - Radio Sussex, 
+BBC - Radio Tees, 
+BBC - Radio Ulster, 
+BBC - Radio Wales, 
+BBC - Radio Wiltshire, 
+BBC - Radio WM, 
+BBC - Radio York, 
+BBC - Three Counties Radio, and 
+BBC - BBC World Service (London, United Kingdom).</p>
+	  <h3>September 27, 2022 10:00 CEST</h3>
+          <p>Radio 47.0 for GNU Network Object Model Environment 43 is now available for <a href="http://getfedora.org/">Fedora Core 37</a> from <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-47.0-1.fc37.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-47.0-1.fc37.x86_64.rpm</a> with Radio Eins RBB (Frankfurt, Germany)</p>
+	  <h3>September 21, 2022</h3>
+	  <p>Radio 46.0 for GNU Network Object Model Environment 43 is now available for <a href="http://getfedora.org/">Fedora Core 37</a> from <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-46.0-1.fc37.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-46.0-1.fc37.x86_64.rpm</a> with Los Angeles, California</p>
+	  <h3>September 19, 2022</h3>
+	  <p>Radio 46.0 for GNU Network Object Model Environment 43 is now available for <a href="http://getfedora.org/">Fedora Core 36</a> from <a href="http://www.gnomeradio.org/~ole/fedora/gnome-radio_46.0-1.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/gnome-radio_46.0-1.x86_64.rpm</a> with support for GtkEntry icons.</a></p>	  
+	  <h3>September 18, 2022</h3>
+	  <p>Radio 45.2 for GNU Network Object Model Environment 43 is now available for <a href="http://getfedora.org/">Fedora Core 36</a> from <a href="http://www.gnomeradio.org/~ole/fedora/gnome-radio_45.2-1.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/gnome-radio_45.2-1.x86_64.rpm</a> with support for libtool 2.4.7</a></p>	  
+	  <h3>September 13, 2022</h3>
+	  <p>Radio Club Ukraine is no longer available on Internet from Ukraine.</p>
+	  <p>BBC World Service reports on NATO liberation of major lands after Russian occupation of Ukraine.</p>
+	  <p><a href="http://www.gnomeradio.org/news/BBC_on_Russian_occupation_and_NATO_liberation_of_Ukraine_20220913.ogg">Listen</a> (Ogg Vorbis, 880KB) | <a href="http://download.gnome.org/sources/gnome-radio/45/gnome-radio-45.3.tar.xz">Download</a> (Software, 447KB)</p>	  
+	  <h3>August 31, 2022</h3>
+          <p>Echo of Moscow is no longer available on Internet from Moscow.</p>
+	  <p>Alexei Venediktov, editor-in-chief of (now closed) Echo of Moscow radio station, was interviewed by Russian Forbes.</p>
+	  <p>Ekho Moskvy radio, born before the Soviet Union fell apart,  was unceremoniously liquidated by its state-controlled majority owner, Gazprom Media; its FM frequency has been handed over to the state propaganda outlet Sputnik.</p>
+	  <p>'The freedom of press, the first media law, who brought it? Mikhail Sergeyevich Gorbachev. Private property? Mikhail Sergeyevich Gorbachev.'
+As he spoke, he gestured to show it was all destroyed.
+'So what would [Gorbachev] be able to say now?' Venediktov said.</p>
+<p>Venediktov was the longtime editor of independent Ekho Moscow radio until it was purged in March under a crackdown of media by Putin's government.</p>
+	  <p>Echo of Moscow hosts have continued some programming under a new name, Zhivoi Gvozd, or The Living Nail, on <a href="http://www.youtube.com/channel/UCWAIvx2yYLK_xTYD4F2mUNw">YouTube</a>.</p>
+<!--
+	<h3>August 27, 2022</h3>
+	  <p>GNU Network Object Model Environment Radio 16 Presentation at GUADEC 2022 that took place July 20 – 25, 2022 is available from <a href="http://www.gnomeradio.org/GUADEC2022.pdf">http://www.gnomeradio.org/GUADEC2022.pdf</a> and <a href="http://blogs.gnome.org/oleaamot/2022/07/24/gnome-radio-16-on-gnome-42/">http://blogs.gnome.org/oleaamot/2022/07/24/gnome-radio-16-on-gnome-42/</a><br />
+	  See the GUADEC 2022 presentation on GNU Network Object Model Environment Radio 16 and org.gnome.Radio building and installation on Fedora Core 36 from source and x86_64 architecture packages.</p>
+-->
+	  <h3>August 14, 2022</h3>
+	  <p>Radio 45.1 for GNU Network Object Model Environment 43 is now available for <a href="http://getfedora.org/">Fedora Core 36</a> from <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-45.1-1.fc36.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-45.1-1.fc36.x86_64.rpm</a> with Radio Free Asia and Radio Taiwan International [CN/EN 2022-08-14]</a></p>
+	  <h3>May 27, 2022</h3>
+	  <p>Radio 16.0.43 for GNU Network Object Model Environment 42 is now available for <a href="http://www.debian.org/">Debian 11 amd64</a> from <a href="http://www.gnomeradio.org/~ole/debian/gnome-radio_16.0.43-1_amd64.deb">http://www.gnomeradio.org/~ole/debian/gnome-radio_16.0.43-1_amd64.deb</a> and <a href="http://www.ubuntu.com/">Ubuntu 22.04 amd64</a> from <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_16.0.43-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_16.0.43-1_amd64.deb</a></p>
+          <p>Radio 45.1 for GNU Network Object Model Environment 43 is available from <a href="http://download.gnome.org/sources/gnome-radio/45/gnome-radio-45.1.tar.xz">http://download.gnome.org/sources/gnome-radio/45/gnome-radio-45.1.tar.xz</a> and <a href="http://wiki.gnome.org/Apps/Radio">http://wiki.gnome.org/Apps/Radio</a></p>
+	  <p>New stations: NRK Folkemusikk, NRK P1+, NRK P3X, NRK Super, Radio Nordfjord, Radio Ålesund</p>
+          <p>Latest Information about GNU Network Object Model Environment Radio is available on <a href="http://wiki.gnome.org/Apps/Radio">http://wiki.gnome.org/Apps/Radio</a> and <a href="http://www.gnomeradio.org/news">http://www.gnomeradio.org/news</a></p>
+          <a name="SourceCode"><h3>Source Code</h3></a>
+	  <p>There is available source code in the GNU Network Object Model Environment Radio repository on <a href="http://gitlab.gnome.org/oka/gnome-radio">http://gitlab.gnome.org/oka/gnome-radio</a> and <a href="http://www.gnomeradio.org/src/gnome-radio-64.0.45.tar.xz">http://www.gnomeradio.org/src/gnome-radio-64.0.45.tar.xz</a> is the GNU Network Object Model Environment Radio 64.0 release (United States of America).</p>
+	  <pre>
+git clone http://gitlab.gnome.org/oka/gnome-radio
+cd gnome-radio/
+autoreconf
+aclocal
+automake --add-missing
+./configure
+make
+sudo make install
+gnome-radio</pre>
+	  <p><a href="http://www.macports.org/">GNU Network Object Model Environment Radio is available in MacPorts</a></p>                                                   
+          <pre>
+sudo port install xorg-server
+sudo port install gnome-radio
+gnome-radio</pre>
+	  <a name="Fedora"><h3>Fedora Core 38</h3></a>
+          <p>You can build <a href="http://wiki.gnome.org/Apps/Radio">GNU Network Object Model Environment Radio</a> on <a href="http://www.fedoraproject.org/">Fedora Core 38</a> with the following package dependencies installed:</p>
+          <pre>
+sudo dnf install gnome-common
+sudo dnf install intltool libtool gtk-doc geoclue2-devel yelp-tools
+sudo dnf install gstreamer1-plugins-bad-free-devel geocode-glib-devel
+sudo dnf install libchamplain-devel libchamplain-gtk libchamplain geoclue2
+</pre>
+          <a name="Debian"><a name="Ubuntu"><h3>Debian/Ubuntu</h3></a></a>
+	  <p>You can build <a href="http://wiki.gnome.org/Apps/Radio">GNU Network Object Model Environment Radio</a> on <a href="http://www.debian.org/">Debian 11</a> and <a href="http://www.ubuntu.com/">Ubuntu Linux 23.04</a> with the following package dependencies installed:</p></a>
+          <pre>
+sudo apt-get install gnome-common gcc git make wget
+sudo apt-get install debhelper intltool dpkg-dev-el libgeoclue-2-dev
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+sudo apt-get install gtk-doc-tools itstool libxml2-utils yelp-tools
+sudo apt-get install libchamplain-0.12-dev libchamplain-gtk-0.12
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+</pre>
+	  <p><a href="http://wiki.gnome.org/Apps/Radio">GNU Network Object Model Environment Radio</a> is Free Internet Radio Software for GNU Network Object Model Environment.  The latest GNU Network Object Model Environment Radio 64.0.45 release features 214 international radio stations, India (Radio Punjab Today), United States (C-SPAN), United Kingdom (BBC), Hawaii Public Radio (NPR), University of Washington, NPO Radio 1 (Netherlands) and 98 city map markers around the world.</p>
+	  <!--
+	  <p><a href="/git/screenshot.png"><img src="/git/screenview.png" alt="GNU Network Object Model Environment Internet Radio Locator 2.0.4" /></a></p>
+	  -->
+	  <pre>
+git clone http://gitlab.gnome.org/GNOME/gnome-common
+cd gnome-common
+./autogen.sh
+./configure
+make
+sudo make install</pre>
+
+	  <pre>
+git clone http://gitlab.gnome.org/oka/gnome-radio
+cd gnome-radio/
+autoreconf
+aclocal
+automake --add-missing
+./configure
+make
+sudo make install
+gnome-radio
+</pre>
+	  <a name="MacPorts"><h3>MacPorts</h3></a>
+	  <p><a href="http://www.macports.org/">GNU Network Object Model Environment Radio is available in MacPorts</a></p>
+	  <pre>
+port install xorg-server
+port install gnome-radio
+gnome-radio</pre>
+	  <a name="WSL2"><h3>Windows 11 WSL2</h3></a>
+          <p><a href="https://learn.microsoft.com/en-us/windows/wsl/install">GNU Network Object Model Environment Radio is available in Windows 11 WSL2</a></p>
+          <pre>
+In Windows PowerShell:
+
+wsl.exe --install Debian
+
+In WSL Debian console:
+
+sudo apt-get install gnome-common gcc git make wget
+sudo apt-get install debhelper intltool dpkg-dev-el libgeoclue-2-dev
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+sudo apt-get install gtk-doc-tools itstool libxml2-utils yelp-tools
+sudo apt-get install libchamplain-0.12-dev libchamplain-gtk-0.12
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+wget http://www.gnomeradio.org/wsl/gnome-radio-64.0.wsl.tar.xz
+tar Jxvf gnome-radio-64.0.wsl.tar.xz
+cd gnome-radio-64.0/
+./autogen.sh
+make && make install
+/usr/local/bin/org.gnome.Radio &
+/usr/local/bin/gnome-radio &
+	  </pre>
+	  <h3>Distribution Packages</h3>
+	  <p><a href="http://www.debian.org/">Debian GNU/Linux</a>, <a href="http://getfedora.org/">Fedora</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> software installation packages of GNU Network Object Model Environment Internet Radio Locator for the computer hardware architectures i386, x86_64 and amd64 are now available for download and installation with the package management system tools rpm and dpkg.</p>
+          <h3>Debian GNU/Linux 11 amd64</h3>
+	  <p><a href="http://www.gnomeradio.org/~ole/debian/gnome-radio_45.1-1_amd64.deb">http://www.gnomeradio.org/~ole/debian/gnome-radio_16.0.43-1_amd64.deb</a></p>
+          <h3>Debian GNU/Linux 10 i386</h3>
+	  <p><a href="http://www.gnomeradio.org/~ole/debian/gnome-internet-radio-locator_3.2.0-1_i386.deb">http://www.gnomeradio.org/~ole/debian/gnome-internet-radio-locator_3.2.0-1_i386.deb</a></p>
+	  <h3>Debian GNU/Linux 9 i386</h3>
+	  <p><a href="http://people.gnome.org/~ole/debian/gnome-internet-radio-locator_2.8.0-1_amd64.deb">http://people.gnome.org/~ole/debian/gnome-internet-radio-locator_2.8.0-1_amd64.deb</a></p>
+	  <h3>Fedora Core 39 Beta x86_64</h3>
+          <p><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-45-1.fc39.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc39.x86_64.rpm</a></p>
+	  <h3>Fedora Core 38 x86_64</h3>
+          <p><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-45-1.fc38.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc38.x86_64.rpm</a></p>
+	  <h3>Fedora Core 37 x86_64</h3>
+          <p><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc37.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc37.x86_64.rpm</a></p>
+	  <h3>Fedora Core 36 x86_64</h3>
+          <p><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-46.0-1.fc36.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-46.0-1.fc36.x86_64.rpm</a></p>
+	  <h3>Fedora Core 35 x86_64</h3>
+          <p><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.5-1.fc35.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.5-1.fc35.x86_64.rpm</a></p>
+	  <h3>Fedora Core 34 x86_64</h3>
+          <p><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.3-1.fc34.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.3-1.fc34.x86_64.rpm</a></p>
+	  <h3>Fedora Core 33 x86_64</h3>
+	  <p><a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-4.0.1-1.fc33.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-4.0.1-1.fc33.x86_64.rpm</a></p>
+	  <h3>Fedora Core 32 x86_64</h3>
+	  <p><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.6.0-1.fc32.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.6.0-1.fc32.x86_64.rpm</a></p>
+	  <h3>Fedora Core 31 x86_64</h3>
+	  <p><a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.0.0-1.fc31.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.0.0-1.fc31.x86_64.rpm</a></p>
+	  <h3>Fedora Core 30 x86_64</h3>
+	  <p><a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.1.1-1.fc30.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.1.1-1.fc30.x86_64.rpm</a></p>
+	  <h3>Fedora Core 29 x86_64</h3>
+	  <p><a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.0.0-1.fc29.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.0.0-1.fc29.x86_64.rpm</a></p>
+	  <h3>Ubuntu 23.04</h3>
+	  <p><a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio-64.0.45-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-radio-64.0.45-1_amd64.deb</a></p>
+	  <h3>Ubuntu 22.04</h3>
+	  <p><a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio-16.0.43-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-radio-16.0.43-1_amd64.deb</a></p>
+	  <h3>Ubuntu 21.10</h3>
+	  <p><a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_12.0.5-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_12.0.5-1_amd64.deb</a></p>
+	  <h3>Ubuntu 21.04</h3>
+	  <p><a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_4.0.2-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_4.0.2-1_amd64.deb</a></p>
+	  <h3>Ubuntu 20.04 LTS</h3>
+          <p><a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_3.9.0-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_3.9.0-1_amd64.deb</a></p>
+	  <h3>Ubuntu 19.10</h3>
+	  <p><a href="http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb">http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb</a></p>
+	  <h3>Ubuntu 19.04</h3>
+	  <p><a href="http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb">http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb</a></p>
+	  <h3>MacPorts</h3>
+<p><a href="http://www.macports.org/ports.php?by=name&substr=gnome-internet-radio-locator">MacPorts</a></p>
+	  <a name="Installation"><h3>Installation</h3></a>
+	  <h3>GNU/Linux</h3>
+          <h4>Debian GNU/Linux 11 amd64</h4>	  
+	  <pre>wget <a href="http://www.gnomeradio.org/~ole/debian/gnome-internet-radio-locator_12.0.1-1_amd64.deb">http://www.gnomeradio.org/~ole/debian/gnome-internet-radio-locator_12.0.1-1_amd64.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_12.0.1-1_amd64.deb</pre>
+          <h4>Debian GNU/Linux 10 i386</h4>
+	  <pre>wget <a href="http://www.gnomeradio.org/~ole/debian/gnome-internet-radio-locator_3.2.0-1_i386.deb">http://www.gnomeradio.org/~ole/debian/gnome-internet-radio-locator_3.2.0-1_i386.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_3.2.0-1_i386.deb</pre>
+	  <h4>Debian GNU/Linux 9 amd64</h4>
+	  <pre>wget <a href="http://people.gnome.org/~ole/debian/gnome-internet-radio-locator_2.8.0-1_amd64.deb">http://people.gnome.org/~ole/debian/gnome-internet-radio-locator_2.8.0-1_amd64.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_2.8.0-1_amd64.deb</pre>
+	  <h4>Fedora Core 39 Beta x86_64</h4>
+          <pre><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc39.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc39.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 38 x86_64</h4>
+          <pre><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc38.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0.45-1.fc38.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 37 x86_64</h4>
+          <pre><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc37.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-64.0-1.fc37.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 36 x86_64</h4>
+          <pre><a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-46.0-1.fc36.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-radio-46.0-1.fc36.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 35 x86_64</h4>
+	  <pre>rpm -Uvh <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.5-1.fc35.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.5-1.fc35.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 34 x86_64</h4>
+	  <pre>rpm -Uvh <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.3-1.fc34.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-12.0.3-1.fc34.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 33 x86_64</h4>
+	  <pre>rpm -Uvh <a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.9.0-1.fc33.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.9.0-1.fc33.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 32 x86_64</h4>
+	  <pre>rpm -Uvh <a href="http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.6.0-1.fc32.x86_64.rpm">http://www.gnomeradio.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.6.0-1.fc32.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 31 x86_64</h4>
+	  <pre>rpm -Uvh <a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.0.0-1.fc31.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-3.0.0-1.fc31.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 30 x86_64</h4>
+	  <pre>rpm -Uvh <a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.1.1-1.fc30.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.1.1-1.fc30.x86_64.rpm</a></pre>
+	  <h4>Fedora Core 29 x86_64</h4>
+	  <pre>rpm -Uvh <a href="http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.0.0-1.fc29.x86_64.rpm">http://people.gnome.org/~ole/fedora/RPMS/x86_64/gnome-internet-radio-locator-2.0.0-1.fc29.x86_64.rpm</a></pre>
+	  <h4>Ubuntu 23.04</h4>
+	  <pre>wget <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0.45-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_64.0.45-1_amd64.deb</a>
+sudo dpkg -i gnome-radio_64.0.45-1_amd64.deb</pre>
+	  <h4>Ubuntu 22.04</h4>
+	  <pre>wget <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_16.0.43-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-radio_16.0.43-1_amd64.deb</a>
+sudo dpkg -i gnome-radio_16.0.43-1_amd64.deb</pre>
+	  <h4>Ubuntu 21.10</h4>
+	  <pre>wget <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_12.0.5-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_12.0.5-1_amd64.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_12.0.5-1_amd64.deb</pre>
+	  <h4>Ubuntu 21.04</h4>
+	  <pre>wget <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_4.0.2-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_4.0.2-1_amd64.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_4.0.2-1_amd64.deb</pre>
+	  <h4>Ubuntu 20.04 LTS</h4>
+	  <pre>wget <a href="http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_3.9.0-1_amd64.deb">http://www.gnomeradio.org/~ole/ubuntu/gnome-internet-radio-locator_3.9.0-1_amd64.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_3.9.0-1_amd64.deb</pre>
+	  <h4>Ubuntu 19.10</h4>
+	  <pre>wget <a href="http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb">http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_3.0.0-1_amd64.deb</pre>
+	  <h4>Ubuntu 19.04</h4>
+	  <pre>wget <a href="http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb">http://people.gnome.org/~ole/ubuntu/gnome-internet-radio-locator_3.0.0-1_amd64.deb</a>
+sudo dpkg -i gnome-internet-radio-locator_3.0.0-1_amd64.deb</pre>
+	  <h3>Mac OS</h3>
+	  <h4><a href="http://www.macports.org/">MacPorts</a></h4>
+	  <pre>port install xorg-server
+port install <a href="http://www.macports.org/ports.php?by=name&substr=gnome-radio">gnome-radio</a></pre>
+	  <h3>Windows 11 WSL2</h3>
+	  <h4><a href="WSL2">WSL2</a></h4>
+<pre>
+In Windows PowerShell:
+
+wsl.exe --install Debian
+
+In WSL Debian console:
+
+sudo apt-get install gnome-common gcc git make wget
+sudo apt-get install debhelper intltool dpkg-dev-el libgeoclue-2-dev
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+sudo apt-get install gtk-doc-tools itstool libxml2-utils yelp-tools
+sudo apt-get install libchamplain-0.12-dev libchamplain-gtk-0.12
+sudo apt-get install libgstreamer-plugins-bad1.0-dev libgeocode-glib-dev
+wget http://www.gnomeradio.org/wsl/gnome-radio-64.0.wsl.tar.xz
+tar Jxvf gnome-radio-64.0.wsl.tar.xz
+cd gnome-radio-64.0/
+./autogen.sh
+make && make install
+/usr/local/bin/org.gnome.Radio &
+/usr/local/bin/gnome-radio &
+	  </pre>
+	  <a name="References"><h3>References</h3></a>
+	  <p><a href="http://csis.pace.edu/~ctappert/cs837-19spring/QC-textbook.pdf">Michael A. Nielsen &amp; Isaac L. Chuang: Quantum Computation and Quantum Information (2021)</a><br />
+	  <a href="http://arxiv.org/pdf/1901.07054.pdf">Piccardo, Marco;  Tamagnone, Michele; Schwarz, Benedikt; Chevalier, Paul; Rubin, Noah A.; Wang, Yongrui; Wang, Christine A.; Connors, Michael K.; McNulty, Daniel; Belyanin, Alexey; and Capasso, Federico: Laser radio transmitter (2019)</a>.  <a href="http://www.ll.mit.edu/">Lincoln Laboratory</a>, <a href="http://web.mit.edu/">Massachusetts Institute of Technology</a><br />
+	  <a href="http://cnx.org/content/col10040/1.9">Johnson, Don H.: Fundamentals of Electrical Engineering I (2012)</a>.  <a href="http://www.rice.edu/">Rice University</a><br />
+	  <a href="http://pws.npru.ac.th/sartthong/data/files/Introduction%20to%20Communication%20Electronic%20Warfare%20Systems.pdf">Richard A. Poisel: Introduction to communication electronic warfare systems (2002)</a>.  <a href="http://www.artechhouse.com/">Artech House</a><br />
+	  <a href="http://ieeexplore.ieee.org/abstract/document/1046146">P. Halvorsen; E. Jorde; K.-A. Skevik; V. Goebel; T. Plagemann: Performance tradeoffs for static allocation of zero-copy buffers (2002)</a>.  <a href="http://ieeexplore.ieee.org/">IEEE Xplore®</a><br />
+	  <a href="http://www.gnomeradio.org/AAMOT-BS-Electrical-Engineering-2020-A-Mathematical-Theory-of-Communication-by-Claude-Shannon-(1948).pdf">Shannon, Claude: A Mathematical Theory of Communication (1948)</a>.  <a href="http://www.bell.com/">Bell Laboratories</a></p>
+	  <address>Last Updated 2023-08-07T22:54:00+02:00 by <a href="http://www.oleaamot.com/">Ole Aamot</a> &lt;ole@aamot.org&gt;</address>
+	</div>
+      </div>
+    </main>
+  </body>
+</html>

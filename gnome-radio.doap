@@ -1,0 +1,21 @@
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:gnome="http://api.gnome.org/doap-extensions#"
+         xmlns="http://usefulinc.com/ns/doap#">
+  <name xml:lang="en">Radio</name>
+  <shortdesc xml:lang="en">Search for Radio Stations</shortdesc>
+  <description>Radio is a Free Software program that allows you to easily locate Free Internet Radio stations by broadcasters on the Internet with the help of map and text search. Radio is developed on the GNOME desktop platform.</description>
+  <homepage rdf:resource="https://wiki.gnome.org/Apps/Radio" />
+  <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/girl-list" />
+  <download-page rdf:resource="http://download.gnome.org/sources/gnome-radio/" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/ole/gnome-radio/issues" />
+  <programming-language>C</programming-language>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Ole Aamot</foaf:name>
+      <foaf:mbox rdf:resource="mailto:ole@gnome.org" />
+      <gnome:userid>ole</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+</Project>

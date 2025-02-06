@@ -1,0 +1,94 @@
+Name:           @PACKAGE@
+Version:        @VERSION@
+Release:        1%{?dist}
+Summary:        GTK Radio
+License:        GPLv3+
+URL:            http://www.gnomeradio.org/~ole/radio/
+Source:         %{url}/%{name}-%{version}.tar.xz
+
+BuildRequires:  gtk4-devel
+BuildRequires:  pango
+BuildRequires:  libchamplain-devel
+BuildRequires:  libxml2-devel
+BuildRequires:  intltool
+BuildRequires:  itstool
+BuildRequires:  libappstream-glib
+BuildRequires:  desktop-file-utils
+BuildRequires:  geocode-glib-devel
+BuildRequires:  gstreamer1-devel
+BuildRequires:  gstreamer1-plugins-bad-free-devel
+BuildRequires:  gstreamer1-plugins-base-devel
+Requires:       gstreamer1 >= 1.8.3
+Requires:       gstreamer1-plugins-ugly-free >= 1.8.3
+Requires:       geocode-glib >= 3.20.1
+Obsoletes:      gnome-radio <= 64.0.45
+Provides:       gnome-radio = 64.0.45
+Obsoletes:	gtk-internet-radio-locator <= 128.0
+Provides:	gtk-internet-radio-locator >= 128.0
+
+%description
+GTK Radio is a Free Software program that allows you to
+easily locate and listen to Free Internet Radio stations by
+broadcasters on the Internet with the help of a map.
+
+GTK Radio is developed on for the brand
+new GTK platform and it requires gstreamer 1.0 for playback.
+
+Enjoy Free Internet Radio.
+
+%prep
+%setup -q
+
+%build
+%configure --with-recording --disable-silent-rules --disable-schemas
+
+%install
+%make_install
+%find_lang %{name} --with-man
+
+%check
+appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/%{name}.appdata.xml
+desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
+%post
+%files -f %{name}.lang
+%doc AUTHORS DEBIAN NEWS README TODO ChangeLog
+%license COPYING
+%{_bindir}/%{name}
+%{_bindir}/gnome-radio
+%{_bindir}/gtk-internet-radio-locator
+%{_bindir}/gnome-internet-radio-locator
+%{_bindir}/org.gnome.Radio
+%{_datadir}/gnome-radio/gnome-radio-264.0.dtd
+%{_datadir}/gnome-radio/gnome-radio.xml
+%{_datadir}/gtk-internet-radio-locator/internet-radio-locator-1.5.dtd
+%{_datadir}/gtk-internet-radio-locator/internet-radio-locator.xml
+%{_datadir}/icons/hicolor/scalable/apps/gtk-internet-radio-locator.svg
+%{_datadir}/icons/hicolor/scalable/apps/gtk-radio.svg
+%{_mandir}/man1/gnome-radio.1.gz
+%{_mandir}/man1/gtk-internet-radio-locator.1.gz
+%{_datadir}/org.gnome.Radio/org.gnome.Radio.dtd
+%{_datadir}/org.gnome.Radio/org.gnome.Radio.xml
+%{_datadir}/%{name}/
+%{_datadir}/appdata/%{name}.appdata.xml
+%{_datadir}/appdata/gnome-radio.appdata.xml
+%{_datadir}/appdata/gtk-internet-radio-locator.appdata.xml
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/gnome-radio.desktop
+%{_datadir}/applications/gtk-internet-radio-locator.desktop
+%{_mandir}/man1/%{name}.1*
+%{_datadir}/icons/hicolor/1024x1024/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/16x16/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/22x22/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/24x24/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/256x256/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/32x32/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/48x48/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/512x512/apps/gtk-internet-radio-locator.png
+%{_datadir}/icons/hicolor/scalable/apps/gnome-radio.svg
+
+%changelog
+* Mon Jan 22 2024 Ole Aamot <ole@aamot.org> - 264.1-1
+- gtk-radio 264.1 build on Fedora Linux 40
+
+* Thu Jan 18 2024 Ole Aamot <ole@aamot.org> - 264.0-1
+- gtk-radio 264.0 build on Fedora Linux 40
